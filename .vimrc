@@ -389,12 +389,12 @@ let g:miniBufExplorerMoreThanOne=3
 " Solarized color scheme setup
 if has('gui_running')
 	" use the light (yellowish background) scheme in GUI
-	set background=light
+	set background=dark
 else
 	" specific settings for terminal 
 	set t_Co=256                        " force vim to use 256 colors
 	let g:solarized_termcolors=256      " use solarized 256 fallback
-	set background=light                " change this if you want dark scheme
+	set background=dark                " change this if you want dark scheme
 
     " Tell vim to change the shape of the cursor based on mode
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
