@@ -45,4 +45,10 @@
 	url = https://github.com/sjl/gundo.vim.git
 [submodule "bundle/scss-syntax.vim"]
 	path = bundle/scss-syntax.vim
-	url = https://github.com/cakebaker/scss-syntax.vim.git
+    url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle/L9"]
+	path = bundle/L9
+	url = https://github.com/vim-scripts/L9.git
+[submodule "bundle/FuzzyFinder"]
+	path = bundle/FuzzyFinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git

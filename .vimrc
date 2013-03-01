@@ -55,6 +55,8 @@ endif
 
 "============= Key Mappings ============= 
 
+nnoremap <C-t> :FufFile **/<cr>
+
 " press ; to issue commands in normal mode (no more shift holding)
 nnoremap ; :
 
