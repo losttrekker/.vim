@@ -367,6 +367,13 @@ au BufRead,BufNewFile *.txt setfiletype html
 " force php files to be treated as php/html - necessary for snipmate to work
 au BufRead,BufNewFile *.php set filetype=php.html
 
+" Ultisnips
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsExpandTrigger="<tab>" 
+let g:UltiSnipsJumpForwardTrigger="<tab>" 
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
+
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.

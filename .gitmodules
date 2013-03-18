@@ -1,54 +1,72 @@
 [submodule "bundle/obviousmode"]
 	path = bundle/obviousmode
 	url = https://github.com/bsl/obviousmode.git
+    ignore = dirty
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+    ignore = dirty
 [submodule "bundle/vim-supertab"]
 	path = bundle/vim-supertab
 	url = https://github.com/tsaleh/vim-supertab.git
+    ignore = dirty
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+    ignore = dirty
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+    ignore = dirty
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+    ignore = dirty
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = https://github.com/tsaleh/vim-align.git
+    ignore = dirty
 [submodule "bundle/php-documentor"]
 	path = bundle/php-documentor
 	url = https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
+    ignore = dirty
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+    ignore = dirty
 [submodule "bundle/vim-neatstatus"]
 	path = bundle/vim-neatstatus
 	url = https://github.com/maciakl/vim-neatstatus.git
+    ignore = dirty
 [submodule "bundle/vim-indent-object"]
 	path = bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+    ignore = dirty
 [submodule "bundle/vim-matchit"]
 	path = bundle/vim-matchit
 	url = https://github.com/edsono/vim-matchit.git
+    ignore = dirty
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+    ignore = dirty
 [submodule "bundle/scss-syntax.vim"]
 	path = bundle/scss-syntax.vim
     url = https://github.com/cakebaker/scss-syntax.vim.git
+    ignore = dirty
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+    ignore = dirty
 [submodule "bundle/FuzzyFinder"]
 	path = bundle/FuzzyFinder
 	url = https://github.com/vim-scripts/FuzzyFinder.git
+    ignore = dirty
 [submodule "bundle/tcomment_vim"]
 	path = bundle/tcomment_vim
 	url = git://github.com/tomtom/tcomment_vim.git
+    ignore = dirty
 [submodule "bundle/UltiSnips"]
 	path = bundle/UltiSnips
 	url = git://github.com/vim-scripts/UltiSnips.git
+    ignore = dirty
