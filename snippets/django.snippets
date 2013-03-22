@@ -1,0 +1,463 @@
+# Model Fields
+
+snippet auto
+${1:FIELDNAME} = models.AutoField(_('${2}'))
+${0}
+endsnippet
+
+snippet bool
+${1:FIELDNAME} = models.BooleanField(_('${2}'), ${3:default=True})
+${0}
+endsnippet
+
+snippet char
+${1:FIELDNAME} = models.CharField(_('${2}'), max_length=${3:100}${4:, blank=True})
+${0}
+endsnippet
+
+snippet comma
+${1:FIELDNAME} = models.CommaSeparatedIntegerField(_('${2}'), max_length=${3:100}${4:, blank=True})
+${0}
+endsnippet
+
+snippet date
+${1:FIELDNAME} = models.DateField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True}${5, null=True})
+${0}
+endsnippet
+
+snippet datetime
+${1:FIELDNAME} = models.DateTimeField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True}${5:, null=True})
+${0}
+endsnippet
+
+snippet decimal
+${1:FIELDNAME} = models.DecimalField((_('${2}'), max_digits=${3}, decimal_places=${4}${5:, blank=True}${6:, null=True})
+${0}
+endsnippet
+
+snippet email
+${1:FIELDNAME} = models.EmailField(_('${2}'), max_length=${3:75}${4:, blank=True})
+${0}
+endsnippet
+
+snippet file
+${1:FIELDNAME} = models.FileField(_('${2}') ,upload_to=${3:path/for/upload}, max_length=${4:100})
+${0}
+endsnippet
+
+snippet filepath
+${1:FIELDNAME} = models.FilePathField(_('${2}'), path=${3:"/abs/path/to/dir"}${4:, max_length=100}${5:, match="*.ext"}${6:, recursive=True}${7:, blank=True, })
+${0}
+endsnippet
+
+snippet float
+${1:FIELDNAME} = models.FloatField(_('${2}'))
+${0}
+endsnippet
+
+snippet image
+${1:FIELDNAME} = models.ImageField(_('${2}'), upload_to=${3:path/for/upload}${4:, height_field=height, width_field=width}${5:, max_length=100})
+${0}
+endsnippet
+
+snippet int
+${1:FIELDNAME} = models.IntegerField(_('${2}'))
+${0}
+endsnippet
+
+snippet ip
+${1:FIELDNAME} = models.IPAddressField(_('${2}'))
+${0}
+endsnippet
+
+snippet nullbool
+${1:FIELDNAME} = models.NullBooleanField(_('${2}'))
+${0}
+endsnippet
+
+snippet posint
+${1:FIELDNAME} = models.PositiveIntegerField(_('${2}'))
+${0}
+endsnippet
+
+snippet possmallint
+${1:FIELDNAME} = models.PositiveSmallIntegerField(_('${2}'))
+${0}
+endsnippet
+
+snippet slug
+${1:FIELDNAME} = models.SlugField(_('${2}'), max_length=${2:50}${3:, blank=True})
+${0}
+endsnippet
+
+snippet smallint
+${1:FIELDNAME} = models.SmallIntegerField(_('${2}'))
+${0}
+endsnippet
+
+snippet text
+${1:FIELDNAME} = models.TextField(_('${2}'), ${3:blank=True})
+${0}
+endsnippet
+
+snippet time
+${1:FIELDNAME} = models.TimeField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True, null=True})
+${0}
+endsnippet
+
+snippet url
+${1:FIELDNAME} = models.URLField(_('${2}'), ${3:verify_exists=False}${4:, max_length=200}${5:, blank=True})
+${0}
+endsnippet
+
+snippet xml
+${1:FIELDNAME} = models.XMLField(_('${2}'), schema_path=${3:None}${4:, blank=True})
+# Relational Fields
+${0}
+endsnippet
+
+snippet fk
+${1:FIELDNAME} = models.ForeignKey(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, to_field='${10}'})
+${0}
+endsnippet
+
+snippet m2m
+${1:FIELDNAME} = models.ManyToManyField(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, symmetrical=False}${10:, through='${11}'}${12:, db_table='${13}'})
+${0}
+endsnippet
+
+snippet o2o
+${1:FIELDNAME} = models.OneToOneField(_('${2}'), ${3:OtherModel}${4:, parent_link=True}${5:, related_name='${6}'}${7:, limit_choices_to={'${8}': ${8}}}${9:, to_field='${10}'})
+${0}
+endsnippet
+
+
+#########################
+#####  FORM FIELDS  #####
+#########################
+
+snippet fbool "Form BooleanField"
+${1:FIELDNAME} = forms.BooleanField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'})
+${0}
+endsnippet
+
+snippet fchar "Form CharField" !b
+${1:FIELDNAME} = forms.CharField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}}))
+${0}
+endsnippet
+
+snippet fchoice "Form ChoiceField" !b
+${1:FIELDNAME} = forms.ChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
+${0}
+endsnippet
+
+snippet ftchoice "Form TypedChoiceField" !b
+${1:FIELDNAME} = forms.ChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
+${0}
+endsnippet
+
+snippet fdate "Form DateField" !b
+${1:FIELDNAME} = forms.DateField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.DateInput()}})
+${0}
+endsnippet
+
+snippet fdatetime "Form DateTimeField" !b
+${1:FIELDNAME} = forms.DateTimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.DateTimeInput()}})
+${0}
+endsnippet
+
+snippet fdecimal "Form Decimal" !b
+${1:FIELDNAME} = forms.DecimalField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}}${11:, max_digits=${12}}${13:, decimal_places=${14}})
+${0}
+endsnippet
+
+snippet femail "Form EmailField" !b
+${1:FIELDNAME} = forms.EmailField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, max_length=${7}}${8:, min_length=${9}})
+${0}
+endsnippet
+
+snippet ffile "Form FileField" !b
+${1:FIELDNAME} = forms.FileField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, max_length=${7}}${8:, allow_empty_file=True})
+${0}
+endsnippet
+
+snippet ffilepath "Form FilePathField" !b
+${1:FIELDNAME} = forms.FileField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, path=${7}}${8:, recursive=True}${9:, match='${10}'}${11:, allow_files=False}${12:, allow_folders=False})
+${0}
+endsnippet
+
+snippet ffloat "Form FloatField" !b
+${1:FIELDNAME} = forms.FloatField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}})
+${0}
+endsnippet
+
+snippet ffile "Form ImageField" !b
+${1:FIELDNAME} = forms.ImageField(label='${2}'${3:, help_text='${4}'}${5:, required=False})
+${0}
+endsnippet
+
+snippet fdecimal "Form IntegerField" !b
+${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}})
+${0}
+endsnippet
+
+snippet fip "Form IP Field" !b
+${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}})
+${0}
+endsnippet
+
+snippet fgip "Form Generic IP Field" !b
+${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, protocol=${9}}${10:, unpack_ipv4=True})
+endsnippet
+
+snippet fmulti "Form MultipleChoiceField" !b
+${1:FIELDNAME} = forms.MultipleChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
+${0}
+endsnippet
+
+snippet ftchoice "Form TypedMultipleChoiceField" !b
+${1:FIELDNAME} = forms.TypedMultipleChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
+${0}
+endsnippet
+
+snippet fnbool "Form NullBooleanField"
+${1:FIELDNAME} = forms.NullBooleanField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'})
+${0}
+endsnippet
+
+snippet fregex "Form RegexField" !b
+${1:FIELDNAME} = forms.RegexField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'}${7:, regex='${8}'}${9:, max_length=${10}}${11:, min_length=${12}}${13:, error_messages={${14}}})
+${0}
+endsnippet
+
+snippet fslug "Form SlugField" !b
+${1:FIELDNAME} = forms.SlugField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}})
+${0}
+endsnippet
+
+snippet ftime "Form TimeField" !b
+${1:FIELDNAME} = forms.TimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.TimeInput()}})
+${0}
+endsnippet
+
+snippet furl "Form URLField" !b
+${1:FIELDNAME} = forms.URLField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}})
+${0}
+endsnippet
+
+snippet fcombo "Form ComboField" !b
+${1:FIELDNAME} = forms.ComboField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]})
+${0}
+endsnippet
+
+snippet fmulval "Form MultiValueField" !b
+${1:FIELDNAME} = forms.MultiValueField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]}${9:, compress_data(${10})})
+${0}
+endsnippet
+
+snippet fsplit "Form SplitDateTimeField" !b
+${1:FIELDNAME} = forms.SplitDateTimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_date_formats=[${7}]}${8:, input_time_formats=[${9}]}${10:, widget=${11}})
+${0}
+endsnippet
+
+snippet fmchoice "Form ModelChoiceField" !b
+${1:FIELDNAME} = forms.ModelChoiceField(queryset=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_label='${9}'})
+${0}
+endsnippet
+
+snippet fmmchoice "Form ModelMultipleChoiceField" !b
+${1:FIELDNAME} = forms.ModelMultipleChoiceField(queryset=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
+${0}
+endsnippet
+
+
+#########################
+#####  WIDGETS  #########
+#########################
+
+
+#########################
+#### CODE SKELETONS #####
+#########################
+
+snippet form
+class ${1:FormName}(forms.Form):
+    """${2:$1 docstring}"""
+    ${3}
+${0}
+endsnippet
+
+snippet model
+class ${1:ModelName}(models.Model):
+    """${2:$1 docstring}"""
+    ${0}
+    date_modified = models.DateTimeField(_('Date Modified'), auto_now=True, editable=False)
+    date_created = models.DateTimeField(_('Date Created'), auto_now_add=True, editable=False)
+    class Meta:
+        verbose_name, verbose_name_plural = u'${3:$1}', u'${4:$3s}'
+    
+    def __unicode__(self):
+        ${6:self.FIELD_NAME}
+    
+    ${7:def save(self, *args, **kwargs${8:${9:, force_insert=False}${10:, force_update=False}}):
+        ${11:# Adjust save}
+        super($1, self).save(*args, **kwargs)}
+    
+    ${12:@models.permalink
+    def get_absolute_url(self):
+        return reverse('${13:view_or_url_name}'${14:, args=[${15}]})}
+endsnippet
+
+snippet modeladmin
+class ${1:ModelName}Admin(admin.ModelAdmin):
+    ${2}
+
+admin.site.register($1, $1Admin)
+
+${0}
+endsnippet
+
+snippet r2r
+	return render_to_response('${1:template.html}', {
+			${2}
+		}${3:, context_instance=RequestContext(request)}
+	)
+	${0}
+endsnippet
+
+snippet tabularinline
+	class ${1:ModelName}Inline(admin.TabularInline):
+		model = $1
+		extra = ${2:3}
+		${0}
+endsnippet
+
+snippet stackedinline
+class ${1:ModelName}Inline(admin.StackedInline):
+    model = $1
+    extra = ${2:3}
+    ${0}
+endsnippet
+
+########################
+#######  Views  ########
+########################
+
+snippet vtemp "Generic Class Based Template View" !b
+class ${1:ViewName}View(TemplateView):
+    """${2:$1 docstring}"""
+    template_name = '${3}'
+    ${0}
+
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super($1, self).get_context_data(**kwargs)
+        return context
+endsnippet
+
+snippet vlist "Generic Class Based List View" !b
+class ${1:ViewName}View(ListView):
+    """${2:$1 docstring}"""
+    queryset = '${3}'
+    context_object_name = '${4}'
+    template_name = '${5}'
+    ${0}
+    
+    def get_context_data(self, **kwargs):
+        context = super($1View, self).get_context_data(**kwargs)
+
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+endsnippet
+
+snippet vdetail "Generic Class Based Detail View" !b
+class ${1:ViewName}View(DetailView):
+    """${2:$1 docstring}"""
+    model = ${3}
+    context_object_name = '${4}'
+    template_name = '${5}'
+    ${0}
+
+    def get_context_data(self, **kwargs):
+        context = super($1View, self).get_context_data(**kwargs)
+
+    ${6:def get_queryset(self):
+        queryset = ${7}
+        return queryset}
+
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+endsnippet
+
+snippet vform "Generic Class Based From View" !b
+class ${1:ViewName}View(FormView):
+    """${2:$1 docstring}"""
+    form_class = ${3:$1Form}
+    template_name = '${4}'
+    ${0}
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+
+    def get_initial(self):
+        initial = super($1View, self).get_initial()
+        return initial
+   
+    def get_success_url(self):
+        return reverse('${5}'${6:, kwargs={${7}}})
+
+    def get_context_data(self, **kwargs):
+        context = super($1View, self).get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        return super($1View, self).form_valid(form)
+
+    def form_invalid(self, form):
+        return super($1View, self).form_valid(form)
+endsnippet
+
+snippet vcreate "Generic Class Based Create View" !b
+class ${1:ViewName}View(CreateView):
+    """${2:$1 docstring}"""
+    form_class = ${3:$1Form}
+    template_name = '${4}'
+    success_url = revers_lazy('${5}'${6:, kwargs={${7}}})
+    ${0}
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        return super($1View, self).form_valid(form)
+endsnippet
+
+snippet vupdate "Generic Class Based Update View" !b
+class ${1:ViewName}View(UpdateView):
+    """${2:$1 docstring}"""
+    form_class = ${3:$1Form}
+    model = ${4}
+    template_name = '${5}'
+    success_url = revers_lazy('${6}'${7:, kwargs={${8}}})
+    ${0}
+    def dispatch(self, request, *args, **kwargs):
+        return super($1View, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        return super($1View, self).form_valid(form)
+endsnippet
+
+snippet vdelete "Generic Class Based Delete View" !b
+class ${1:ViewName}View(DeleteView):
+    """${2:$1 docstring}"""
+    model = ${3}
+    success_url = revers_lazy('${4}'${5:, kwargs={${6}}})
+    template_name_suffix = '${7:_confirm_delete}'
+endsnippet
+
+snippet vredirect "Generic Class Based Redirect View" !b
+class ${1:ViewName}View(RedirectView):
+    """${2:$1 docstring}"""
+    ${0}
+    def get_redirect_url(self):
+        return reverse('${3:SOME_URL}', ${4:kwargs={${5}}})
+endsnippet

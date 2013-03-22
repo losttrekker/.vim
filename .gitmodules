@@ -70,3 +70,6 @@
 	path = bundle/UltiSnips
 	url = git://github.com/vim-scripts/UltiSnips.git
     ignore = dirty
+[submodule "bundle/jslint.vim"]
+	path = bundle/jslint.vim
+	url = git://github.com/hallettj/jslint.vim.git

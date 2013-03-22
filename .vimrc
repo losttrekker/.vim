@@ -111,6 +111,9 @@ set showmode
 :autocmd FileType php noremap <leader>l :!php -l %<CR>
 
 " use \y and \p to copy and paste from system clipboard
+
+"set clipboard=unnamed
+
 noremap <leader>y "+y
 noremap <leader>Y "+Y
 noremap <leader>p "+p
