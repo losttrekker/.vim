@@ -1,0 +1,940 @@
+### IMPORTANT
+
+snippet ! "!important" !
+!important${0}
+endsnippet
+
+
+### BACKGROUND
+
+snippet bg "background: #ffffff url('img_tree.png') no-repeat left top;" !b
+background: ${1:#fff}${1/(t)|..*/(?1:ransparent)/}${2: url('${3:/path/to/image}')}${4: ${5:no-}${6:repeat}${7}} ${8:l}${8/(l)|(r)|(c)|..*/(?1:eft)(?2:ight)(?3:enter)/} ${9:t}${9/(t)|(c)|(b)|..*/(?1:op)(?2:enter)(?3:ottom)/};${0}
+endsnippet
+
+snippet bg:n "background: none;" !b
+background: none;${0}
+endsnippet
+
+snippet bgc "background-color: XX" !b
+background-color: ${1};${0}
+endsnippet
+
+### BORDER
+
+snippet bd "border: XX;" !b
+border: ${1};${0}
+endsnippet
+
+snippet bd+ "border: 1px solid #000;" !b
+border: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet bd:n "border: none;" !b
+border: none;${0}
+endsnippet
+
+snippet bdbk "border-break: 1px solid black" !b
+border-break: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet bdbk:c "border-break: close;" !b
+border-break: close;${0}
+endsnippet
+
+snippet bdcl "border-collapse: collapse|separate;" !b
+border-collapse: ${1}${1/(c)|(s)|..*/(?1:ollapse)(?2:eparate)/};${0}
+endsnippet
+
+snippet bdcl:c "border-collapse: collapse" !b
+border-collapse: collapse;${0}
+endsnippet
+
+snippet bdcl:s "border-collapse: separate" !b
+border-collapse: separate;${0}
+endsnippet
+
+snippet bdc "border-color: #000" !b
+border-color: ${1:#000};${0}
+endsnippet
+
+snippet bdi "border-image: url(PATH);" !b
+border-image: url(${1:/PATH/TO/IMAGE}) ${2:SLICE} ${3:WIDTH} ${4:OUTSET} ${5:REPEAT}${5/(r)|(s)|..*/(?1:ound)(?2:tretch)/};${0}
+endsnippet
+
+snippet bdi:n "border-image: none;" !b
+border-image: none;${0}
+endsnippet
+
+snippet bdi:w "-webkit-border-image:url(|) 0 0 0 0 stretch stretch;" !b
+-webkit-border-image:url(${1;PATH}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};${0}
+endsnippet
+
+snippet bdi:m "-moz-border-image:url(|) 0 0 0 0 stretch stretch;" !b
+-mox-border-image:url(${1;PATH}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};${0}
+endsnippet
+
+snippet bdti "border-top-image: url(PATH);" !b
+border-top-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdti:n "border-top-image: none;" !b
+border-top-image: none;${0}
+endsnippet
+
+snippet bdri "border-right-image: url(PATH);" !b
+border-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdri:n "border-right-image: none;" !b
+border-right-image: none;${0}
+endsnippet
+
+snippet bdbi "border-bottom-image: url(PATH);" !b
+border-bottom-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbi:n "border-bottom-image: none;" !b
+border-bottom-image: none;${0}
+endsnippet
+
+snippet bdli "border-left-image: url(PATH);" !b
+border-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdli:n "border-left-image: none;" !b
+border-left-image: none;${0}
+endsnippet
+
+snippet bdci "border-corner-image: url(PATH);" !b
+border-corner-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdci:n "border-corner-image: none;" !b
+border-corner-image: none;${0}
+endsnippet
+
+snippet bdci:c "border-corner-image: none;" !b
+border-corner-image: continue;${0}
+endsnippet
+###TOPLEFT
+snippet bdtli "border-top-left-image: url(PATH);" !b
+border-top-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdtli:n "border-top-left-image: none;" !b
+border-top-left-image: none;${0}
+endsnippet
+
+snippet bdtli:c "border-top-left-image: none;" !b
+border-top-left-image: continue;${0}
+endsnippet
+## TOPRIGHT
+snippet bdtri "border-top-right-image: url(PATH);" !b
+border-top-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdtri:n "border-top-right-image: none;" !b
+border-top-right-image: none;${0}
+endsnippet
+
+snippet bdtri:c "border-top-right-image: none;" !b
+border-top-right-image: continue;${0}
+endsnippet
+### BOTTOM RIGHT
+snippet bdbri "border-bottom-right-image: url(PATH);" !b
+border-bottom-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbri:n "border-bottom-right-image: none;" !b
+border-bottom-right-image: none;${0}
+endsnippet
+
+snippet bdbri:c "border-bottom-right-image: none;" !b
+border-bottom-right-image: continue;${0}
+endsnippet
+### BOTTOM LEFT
+snippet bdbli "border-bottom-left-image: url(PATH);" !b
+border-bottom-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbli:n "border-bottom-left-image: none;" !b
+border-bottom-left-image: none;${0}
+endsnippet
+
+snippet bdbli:c "border-bottom-left-image: none;" !b
+border-bottom-left-image: continue;${0}
+endsnippet
+
+### BORDER FIT
+
+snippet bdf "border-fit: XX;" !b
+border-fit: ${1};${0}
+endsnippet
+
+snippet bdf:c "border-fit: clip;" !b
+border-fit: clip;${0}
+endsnippet
+
+snippet bdf:r "border-fit: repeat;" !b
+border-fit: repeat;${0}
+endsnippet
+
+snippet bdf:sc "border-fit: scale;" !b
+border-fit: scale;${0}
+endsnippet
+
+snippet bdf:st "border-fit: stretch;" !b
+border-fit: stretch;${0}
+endsnippet
+
+snippet bdf:ow "border-fit: overwrite;" !b
+border-fit: overwrite;${0}
+endsnippet
+
+snippet bdf:of "border-fit: overflow;" !b
+border-fit: overflow;${0}
+endsnippet
+
+snippet bdf:sp "border-fit: space;" !b
+border-fit: space;${0}
+endsnippet
+
+snippet bds "border-style: XX;" !b
+border-style: ${1};${0}
+endsnippet
+
+snippet bds:n "border-style: none;" !b
+border-style: none;${0}
+endsnippet
+
+snippet bds:h "border-style: hidden;" !b
+border-style: hidden;${0}
+endsnippet
+
+snippet bds:dt "border-style: dotted;" !b
+border-style: dotted;${0}
+endsnippet
+
+snippet bds:ds "border-style: dashed;" !b
+border-style: dashed;${0}
+endsnippet
+
+snippet bds:s "border-style: solid;" !b
+border-style: solid;${0}
+endsnippet
+
+snippet bds:db "border-style: double;" !b
+border-style: double;${0}
+endsnippet
+
+snippet bds:dtds "border-style: dot-dash;" !b
+border-style: dot-dash;${0}
+endsnippet
+
+snippet bds:dtdtds "border-style: dot-dot-dash;" !b
+border-style: dot-dot-dash;${0}
+endsnippet
+
+snippet bds:w "border-style: wave;" !b
+border-style: wave;${0}
+endsnippet
+
+snippet bds:g "border-style: groove;" !b
+border-style: groove;${0}
+endsnippet
+
+snippet bds:r "border-style: ridge;" !b
+border-style: ridge;${0}
+endsnippet
+
+snippet bds:i "border-style: inset;" !b
+border-style: inset;${0}
+endsnippet
+
+snippet bds:o "border-style: outset;" !b
+border-style: outset;${0}
+endsnippet
+
+snippet bdt "border-top: XX;" !b
+border-top ${1};${0}
+endsnippet
+
+snippet bdt+ "border-top: 1px solid #000;" !b
+border-top: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdtw(\d+)?" "border-top-width: XXpx;" !br
+border-top-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdts "border-top-style: XX;" !b
+border-top-style: ${1};${0}
+endsnippet
+
+snippet bdts:n "border-top-style: none;" !b
+border-top-style: none;${0}
+endsnippet
+
+snippet bdtc "border-top-color: $000;" !b
+border-top-color: ${1:#000};${0}
+endsnippet
+
+snippet bdb "border-bottom XX;" !b
+border-bottom: ${1};${0}
+endsnippet
+
+snippet bdb+ "border-bottom: 1px solid #000;" !b
+border-bottom: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdbw(\d+)?" "border-bottom-width: XXpx;" !br
+border-bottom-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdbs "border-bottom-style: XX;" !b
+border-bottom-style: ${1};${0}
+endsnippet
+
+snippet bdbs:n "border-bottom-style: none;" !b
+border-bottom-style: none;${0}
+endsnippet
+
+snippet bdbc "border-bottom-color: $000;" !b
+border-bottom-color: ${1:#000};${0}
+endsnippet
+
+snippet bdl "border-left: XX;" !b
+border-left: ${1};${0}
+endsnippet
+
+snippet bdl+ "border-left: 1px solid #000;" !b
+border-left: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdlw(\d+)?" "border-left-width: XXpx;" !br
+border-left-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdls "border-left-style: XX;" !b
+border-left-style: ${1};${0}
+endsnippet
+
+snippet bdls:n "border-left-style: none;" !b
+border-left-style: none;${0}
+endsnippet
+
+snippet bdlc "border-left-color: $000;" !b
+border-left-color: ${1:#000};${0}
+endsnippet
+
+snippet bdr "border-right: XX;" !b
+border-right: ${1};${0}
+endsnippet
+
+snippet bdr+ "border-right: 1px solid #000;" !b
+border-right: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdrw(\d+)?" "border-right-width: XXpx;" !br
+border-right-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdrs "border-right-style: XX;" !b
+border-right-style: ${1};${0}
+endsnippet
+
+snippet bdrs:n "border-right-style: none;" !b
+border-right-style: none;${0}
+endsnippet
+
+snippet bdrc "border-right-color: $000;" !b
+border-right-color: ${1:#000};${0}
+endsnippet
+
+snippet "bdw(\d+)?" "border-width: XXpx;" !br
+border-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdrz "border-radius: XX;" !b
+border-radius: ${1};${0}
+endsnippet
+
+snippet bdtrrz "border-top-right-radius: XX;" !b
+border-top-right-radius: ${1};${0}
+endsnippet
+
+snippet bdtlrz "border-top-left-radius: XX;" !b
+border-top-left-radius: ${1};${0}
+endsnippet
+
+snippet bdbrrz "border-bottom-right-radius: XX;" !b
+border-bottom-right-radius: ${1};${0}
+endsnippet
+
+snippet bdblrz "border-bottom-left-radius: XX;" !b
+border-bottom-left-radius: ${1};${0}
+endsnippet
+
+snippet bdrz:w "-webkit-border-radius: XX;" !b
+-webkit-border-radius: ${1};${0}
+endsnippet
+
+snippet bdrz:m "-moz-border-radius: XX;" !b
+-moz-border-radius: ${1};${0}
+endsnippet
+
+### BOTTOM
+
+snippet "b(\d+)?" "bottom: XXpx;" !br
+bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet b:a "bottom: auto;" !b
+bottom: auto;${0}
+endsnippet
+
+### BOX SHADOW
+
+snippet bxsh "box-shadow: 0 0 0 #000;" !b
+box-shadow:${1:${2:0} ${3:0} ${4:0} ${5:#000}};${0}
+endsnippet
+
+snippet bxsh:n "box-shadow: none;" !b
+box-shadow: none;${0}
+endsnippet
+
+snippet bxsh:w "-webkit-box-shadow:0 0 0 #000;" !b
+-webkit-box-shadow:${1:0} ${2:0} ${3:0} ${4:#000};${0}
+endsnippet
+
+snippet bxsh:m "-moz-box-shadow:0 0 0 #000;" !b
+-moz-box-shadow:${1:0} ${2:0} ${3:0} ${4:#000};${0}
+endsnippet
+
+### BOX SIZING
+
+snippet bxz "box-sizing: content-box|border-box;" !b
+box-sizing: ${1}${1/(c)|(b)|..*/(?1:ontent-box)(?2:border-box)/};${0}
+endsnippet
+
+snippet bxz:cb "box-sizing: content-boxl" !b
+box-sizing: content-box;${0}
+endsnippet
+
+snippet bxz:bb "box-sizing: border-box;" !b
+box-sizing: border-box;${0}
+endsnippet
+
+### CLEAR
+
+snippet cl "clear: left|right|both|none;" !b
+clear: ${1}${1/(l)|(r)|(b)|(n)|..*/(?1:eft)(?2:ight)(?3:oth)(?4:one)/};${0}
+endsnippet
+
+snippet cl:l "clear: left;" !b
+clear: left;${0}
+endsnippet
+
+snippet cl:r "clear: right;" !b
+clear: right;${0}
+endsnippet
+
+snippet cl:b "clear: both;" !b
+clear: both;${0}
+endsnippet
+
+snippet cl:n "clear: none;" !b
+clear: none;${0}
+endsnippet
+
+### CLIP
+
+snippet cp "clip: XX" !b
+clip: ${1};${0}
+endsnippet
+
+snippet cp:a "clip: auto;" !b
+clip: auto;${0}
+endsnippet
+
+snippet cp:r "clip: rect(XX);" !b
+clip: rect(${1});${0}
+endsnippet
+
+### COLOR
+
+snippet c "color: XX" !b
+color: ${1};${0}
+endsnippet
+
+### DISPLAY
+
+snippet d "display: n|b|i|ib" !b
+display: ${1}${1/(n)|(b)|(i)|..*/(?1:one)(?2:lock)(?3:nline)/};${0}
+endsnippet
+
+snippet d:n "display: none;" !b
+display: none;${0}
+endsnippet
+
+snippet d:b "display: block;" !b
+display: block;${0}
+endsnippet
+
+snippet d:i "display: inline;" !b
+display: inline;${0}
+endsnippet
+
+snippet d:ib "display: inline-block;" !b
+display: inline-block;${0}
+endsnippet
+
+snippet d:li "display: list-item;" !b
+display: list-item;${0}
+endsnippet
+
+snippet d:ri "display: run-in;" !b
+display: run-in;${0}
+endsnippet
+
+snippet d:cp "display: compact;" !b
+display: compact;${0}
+endsnippet
+
+snippet d:tb "display: table;" !b
+display: table;${0}
+endsnippet
+
+snippet d:itb "display: inline-table;" !b
+display: inline-table;${0}
+endsnippet
+
+snippet d:tbcp "display: table-caption;" !b
+display: table-caption;${0}
+endsnippet
+
+snippet d:tbcl "display: table-column;" !b
+display: table-column;${0}
+endsnippet
+
+snippet d:tbclg "display: table-column-group;" !b
+display: table-column-group;${0}
+endsnippet
+
+snippet d:tbhg "display: table-header-group;" !b
+display: table-header-group;${0}
+endsnippet
+
+snippet d:tbfg "display: table-footer-group;" !b
+display: table-footer-group;${0}
+endsnippet
+
+snippet d:tbr "display: table-row;" !b
+display: table-row;${0}
+endsnippet
+
+snippet d:tbrg "display: table-row-group;" !b
+display: table-row-group;${0}
+endsnippet
+
+snippet d:tbc "display: table-cell;" !b
+display: table-cell;${0}
+endsnippet
+
+snippet d:rb "display: ruby;" !b
+display: ruby;${0}
+endsnippet
+
+snippet d:rbb "display: ruby-base;" !b
+display: ruby-base;${0}
+endsnippet
+
+snippet d:rbbg "display: ruby-base-group;" !b
+display: ruby-base-group;${0}
+endsnippet
+
+snippet d:rbt "display: ruby-text;" !b
+display: ruby-text;${0}
+endsnippet
+
+snippet d:rbtg "display: ruby-text-group;" !b
+display: ruyb-text-group;${0}
+endsnippet
+
+
+### FLOAT
+
+snippet fl "float: left|right|none;" !b
+float: ${1}${1/(l)|(r)|(n)|..*/(?1:eft)(?2:ight)(?3:one)/};${0}
+endsnippet
+
+snippet fl:l "float: left;" !b
+float: left;${0}
+endsnippet
+
+snippet fl:r "float: right;" !b
+float: right;${0}
+endsnippet
+
+snippet fl:n "float: none;" !b
+float: none;${0}
+endsnippet
+
+### FONT
+
+snippet "fz(\d+)?" "font-size: XXpx;" !br
+font-size: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+### HEIGHT
+
+snippet "h(\d+)?" "height: XXpx;" !br
+height: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet h:a "height: auto;" !b
+height: auto;${0}
+endsnippet
+
+### LEFT
+
+snippet "l(\d+)?" "left: XXpx;" !br
+left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet l:a "left: auto;" !b
+left: auto;${0}
+endsnippet
+
+
+### MARGIN
+
+snippet "m(\d+)?" "margin: XXpx;" !br
+margin: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet m:a "margin: auto;" !b
+margin: auto;${0}
+endsnippet
+
+snippet m:0 "margin: 0;" !b
+margin: ${1:0};${0}
+endsnippet
+
+snippet m:2 "margin: 0 0;" !b
+margin: ${1:0} ${2:0};${0}
+endsnippet
+
+snippet m:3 "margin: 0 0 0;" !b
+margin: ${1:0} ${2:0} ${3:0};${0}
+endsnippet
+
+snippet m:4 "margin: 0 0 0 0;" !b
+margin: ${1:0} ${2:0} ${3:0} ${4:0};${0}
+endsnippet
+
+snippet "mr(\d+)?" "margin-right: XXpx;" !br
+margin-right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mr:a "margin-right: auto;" !b
+margin-right: auto;${0}
+endsnippet
+
+snippet "ml(\d+)?" "margin-left: XXpx;" !br
+margin-left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet ml:a "margin-left: auto;" !b
+margin-left: auto;${0}
+endsnippet
+
+snippet "mt(\d+)?" "margin-top: XXpx;" !br
+margin-top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mt:a "margin-top: auto;" !b
+margin-top: auto;${0}
+endsnippet
+
+snippet "mb(\d+)?" "margin-bottom: XXpx;" !br
+margin-bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mb:a "margin-bottom: auto;" !b
+margin-bottom: auto;${0}
+endsnippet
+
+### MAX-HEIGHT
+
+snippet mah "max-height: XX;" !b
+max-height: ${1};${0}
+endsnippet
+
+snippet mah:a "max-height: auto;" !b
+max-height: auto;${0}
+endsnippet
+
+### MAX-WIDTH
+
+snippet maw "max-width: XX;" !b
+max-width: ${1};${0}
+endsnippet
+
+snippet maw:a "max-width: auto;" !b
+max-width: auto;${0}
+endsnippet
+
+### MIN-HEIGHT
+
+snippet mih "min-height: XX;" !b
+min-height: ${1};${0}
+endsnippet
+
+snippet mih:a "min-height: auto;" !b
+min-height: auto;${0}
+endsnippet
+
+### MIN-WIDTH
+
+snippet miw "min-width: XX;" !b
+min-width: ${1};${0}
+endsnippet
+
+snippet miw:a "min-width: auto;" !b
+min-width: auto;${0}
+endsnippet
+
+### OUTLINE
+
+snippet o "outline: #000 solid 1px;" !b
+outline: ${1:#000} ${2:solid} ${3:1${4:px}};${0}
+endsnippet
+
+snippet "oo(\d+)?" "outline-offset: XXpx;" !br
+outline-offset: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet "ow(\d+)?" "outline-width: XXpx;" !br
+outline-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet os "outline-style: XX;" !b
+outline-style: ${1};${0}
+endsnippet
+
+snippet oc "outline-color: #000;" !b
+outline-color: ${1:#000};${0}
+endsnippet
+
+snippet oc:i "outline-color: invert;" !b
+outline-color: invert;${0}
+endsnippet
+
+
+### OVERFLOW
+
+snippet ov "overflow: visible|hidden|scroll|auto" !b
+overflow${1}: ${2}${2/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ov:v "overflow: visible;" !b
+overflow: visible;${0}
+endsnippet
+
+snippet ov:h "overflow: hidden;" !b
+overflow: hidden;${0}
+endsnippet
+
+snippet ov:s "overflow: scroll;" !b
+overflow: scroll;${0}
+endsnippet
+
+snippet ov:a "overflow: auto;" !b
+overflow: auto;${0}
+endsnippet
+
+snippet ovx "overflow-x: visible|hidden|scroll|auto" !b
+overflow-x: ${1}${1/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ovx:h "overflow-x: hidden;" !b
+overflow-x: hidden;${0}
+endsnippet
+
+snippet ovx:s "overflow-x: scroll;" !b
+overflow-x: scroll;${0}
+endsnippet
+
+snippet ovx:a "overflow-x: auto;" !b
+overflow-x: auto;${0}
+endsnippet
+
+snippet ovy "overflow-y: visible|hidden|scroll|auto" !b
+overflow-y: ${1}${1/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ovy:h "overflow-y: hidden;" !b
+overflow-y: hidden;${0}
+endsnippet
+
+snippet ovy:s "overflow-y: scroll;" !b
+overflow-y: scroll;${0}
+endsnippet
+
+snippet ovy:a "overflow-y: auto;" !b
+overflow-y: auto;${0}
+endsnippet
+
+
+### PADDING
+
+snippet "p(\d+)?" "padding: XXpx;" !br
+padding: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet p:a "padding: auto;" !b
+padding: auto;${0}
+endsnippet
+
+snippet p:0 "padding: 0;" !b
+padding: ${1:0};${0}
+endsnippet
+
+snippet p:2 "padding: 0 0;" !b
+padding: ${1:0} ${2:0};${0}
+endsnippet
+
+snippet p:3 "padding: 0 0 0;" !b
+padding: ${1:0} ${2:0} ${3:0};${0}
+endsnippet
+
+snippet p:4 "padding: 0 0 0 0;" !b
+padding: ${1:0} ${2:0} ${3:0} ${4:0};${0}
+endsnippet
+
+snippet "pr(\d+)?" "padding-right: XXpx;" !br
+padding-right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet pr:a "padding-right: auto;" !b
+padding-right: auto;${0}
+endsnippet
+
+snippet "pl(\d+)?" "padding-left: XXpx;" !br
+padding-left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet pl:a "padding-left: auto;" !b
+padding-left: auto;${0}
+endsnippet
+
+snippet "pt(\d+)?" "padding-top: XXpx;" !br
+padding-top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet pt:a "padding-top: auto;" !b
+padding-top: auto;${0}
+endsnippet
+
+snippet "pb(\d+)?" "padding-bottom: XXpx;" !br
+padding-bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet pb:a "padding-bottom: auto;" !b
+padding-bottom: auto;${0}
+endsnippet
+
+
+### POSITION
+
+snippet pos "position: s|a|r|f;" !b
+position: ${1}${1/(s)|(a)|(r)|(f)|..*/(?1:tatic)(?2:bsolute)(?3:elative)(?4:ixed)/};${0}
+endsnippet
+
+snippet pos:s "position: static;" !b
+position: static;${0}
+endsnippet
+
+snippet pos:a "position: absolute;" !b
+position: absolute;${0}
+endsnippet
+
+snippet pos:r "position: relative;" !b
+position: relative;${0}
+endsnippet
+
+snippet pos:f "position: fixed;" !b
+position: fixed;${0}
+endsnippet
+
+
+### RIGHT
+
+snippet "r(\d+)?" "right: XXpx;" !br
+right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet r:a "right: auto;" !b
+right: auto;${0}
+endsnippet
+
+
+### TOP
+
+snippet "t(\d+)?" "top: XXpx;" !br
+top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet t:a "top: auto;" !b
+top: auto;${0}
+endsnippet
+
+### VISIBILITY
+
+snippet v "visibility: visible|hidden|collapse;" !b
+visibility: ${1}${1/(v)|(h)|(c)|..*/(?1:isible)(?2:idden)(?3:ollapse)/};${0}
+endsnippet
+
+snippet v:v "visibility: visible;" !b
+visibility: visible;${0}
+endsnippet
+
+snippet v:v "visibility: hidden;" !b
+visibility: hidden;${0}
+endsnippet
+
+snippet v:v "visibility: collapse;" !b
+visibility: collapse;${0}
+endsnippet
+
+### WIDTH
+
+snippet "w(\d+)?" "width: XXpx;" !br
+width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet w:a "width: auto;" !b
+width: auto;${0}
+endsnippet
+
+
+### Z-INDEX
+
+snippet z "z-index: XX;" !b
+z-index: ${1};${0}
+endsnippet
+
+snippet "z(\d+)?" "z-index: XX;" !br
+z-index: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`};${0}
+endsnippet
+
+snippet z:a "z-index: auto;" !b
+z-index: auto;${0}
+endsnippet
+
+### ZOOM
+
+snippet "zoo(\d+)?" "zoom: XX;" !br
+zoom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`};${0}
+endsnippet
