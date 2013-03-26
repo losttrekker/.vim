@@ -1,405 +1,1952 @@
-###########################################################################
-#                    Most of these came from TextMate                     #
-###########################################################################
+### IMPORTANT
 
-snippet ! "!important CSS (!)"
-${1:!important}
+snippet ! "!important" !
+!important${0}
 endsnippet
 
-snippet fixed "Fixed Position Bottom 100% wide IE6"
-${2:bottom: auto;}top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-${1:THE HEIGHT OF THIS THING IN PIXELS}));
-${3:left: expression(eval(document.documentElement.scrollLeft));
-}${4:width: expression(eval(document.documentElement.clientWidth));}$0
+
+### BACKGROUND
+
+snippet "bg(\+)?" "background: #ffffff url('img_tree.png') no-repeat left top;" !br
+background: ${1:#fff}${1/(t)|..*/(?1:ransparent)/}${2: url('${3:/path/to/image}')}${4: ${5:no-}${6:repeat}${7}} ${8:l}${8/(l)|(r)|(c)|..*/(?1:eft)(?2:ight)(?3:enter)/} ${9:t}${9/(t)|(c)|(b)|..*/(?1:op)(?2:enter)(?3:ottom)/};${0}
+endsnippet
+
+snippet bg:n "background: none;" !b
+background: none;${0}
+endsnippet
+
+snippet bg:ie "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=''|x.png'')" !b
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${1}'|x.png'${2}');${0}
+endsnippet
+
+snippet bgc "background-color: XX" !b
+background-color: ${1};${0}
+endsnippet
+
+snippet bgi "background-image: XX;" !b
+background-image: url(${1:PATH});${0}
+endsnippet
+
+snippet bgi:n "background-image: nonel" !b
+background-image: none;${0}
+endsnippet
+
+snippet bgr "background-repeat: XX;" !b
+background-repeat: ${1};${0}
+endsnippet
+
+snippet bgr:n "background-repeat: no-repeat;" !b
+background-repeat: no-repeat;${0}
+endsnippet
+
+snippet bgr:x "background-repeat: repeat-x;" !b
+background-repeat: repeat-x;${0}
+endsnippet
+
+snippet bgr:y "background-repeat: repeat-y;" !b
+background-repeat: repeat-y;${0}
+endsnippet
+
+snippet bga "background-attachment: scroll|fixed;" !b
+background-attachment: ${1}${1/(s)|(f)|..*/(?1:croll)(?2:ixed)/};${0}
+endsnippet
+
+snippet bga:s "background-attachment: scroll;" !b
+background-attachment: scroll;${0}
+endsnippet
+
+snippet bga:f "background-attachment: fixed;" !b
+background-attachment: fixed;${0}
+endsnippet
+
+snippet bgp "background-position: 0 0;" !b
+background-position: ${1:0} ${2:0};${0}
+endsnippet
+
+snippet bgpx "background-position-x: XX;" !b
+background-position-x: ${1};${0}
+endsnippet
+
+snippet bgpy "background-position-y: XX;" !b
+background-position-y: ${1};${0}
+endsnippet
+
+snippet bgbk "background-break: bounding-box|each-box|continuous;" !b
+background-break: ${1}${1/(b)|(e)|(c)|..*/(?1:ounding-box)(?2:ach-box)(?3:ontinuous)/};${0}
+endsnippet
+
+snippet bgbk:bb "background-break: bounding-box;" !b
+background-break: bounding-box;${0}
+endsnippet
+
+snippet bgbk:eb "background-break: each-box;" !b
+background-break: each-box;${0}
+endsnippet
+
+snippet bgbk:c "background-break: continuous;" !b
+background-break: continuous;${0}
+endsnippet
+
+snippet bgcp "background-clip: XX;" !b
+background-clip: ${1}${1/(b)|(p)|(c)|(n)|..*/(?1:order-box)(?2:adding-box)(?3:ontent)(?4:o-clip)/};${0}
+endsnippet
+
+snippet bgcp:bb "background-clip: border-box;" !b
+background-clip: border-box;${0}
+endsnippet
+
+snippet bgcp:pb "background-clip: padding-box;" !b
+background-clip: padding-box;${0}
+endsnippet
+
+snippet bgcp:cb "background-clip: content-box;" !b
+background-clip: content-box;${0}
+endsnippet
+
+snippet bgcp:nc "background-clip: no-clip;" !b
+background-clip: no-clip;${0}
+endsnippet
+
+snippet bgo:bb "background-origin: border-box;" !b
+background-origin: border-box;${0}
+endsnippet
+
+snippet bgo:pb "background-origin: padding-box;" !b
+background-origin: padding-box;${0}
+endsnippet
+
+snippet bgo:cb "background-origin: content-box;" !b
+background-origin: content-box;${0}
+endsnippet
+
+snippet bgz "background-size: XX;" !b
+background-size: ${1};${0}
+endsnippet
+
+snippet bgz:a "background-size: auto;" !b
+background-size: auto;${0}
+endsnippet
+
+snippet bgz:ct "background-size: contain;" !b
+background-size: contain;${0}
+endsnippet
+
+snippet bgz:cv "background-size: cover;" !b
+background-size: cover;${0}
+endsnippet
+
+
+### BORDER
+
+snippet bd "border: XX;" !b
+border: ${1};${0}
+endsnippet
+
+snippet bd+ "border: 1px solid #000;" !b
+border: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet bd:n "border: none;" !b
+border: none;${0}
+endsnippet
+
+snippet bdbk "border-break: 1px solid black" !b
+border-break: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet bdbk:c "border-break: close;" !b
+border-break: close;${0}
+endsnippet
+
+snippet bdcl "border-collapse: collapse|separate;" !b
+border-collapse: ${1}${1/(c)|(s)|..*/(?1:ollapse)(?2:eparate)/};${0}
+endsnippet
+
+snippet bdcl:c "border-collapse: collapse" !b
+border-collapse: collapse;${0}
+endsnippet
+
+snippet bdcl:s "border-collapse: separate" !b
+border-collapse: separate;${0}
+endsnippet
+
+snippet bdc "border-color: #000" !b
+border-color: ${1:#000};${0}
+endsnippet
+
+snippet bdi "border-image: url(PATH);" !b
+border-image: url(${1:/PATH/TO/IMAGE}) ${2:SLICE} ${3:WIDTH} ${4:OUTSET} ${5:REPEAT}${5/(r)|(s)|..*/(?1:ound)(?2:tretch)/};${0}
+endsnippet
+
+snippet bdi:n "border-image: none;" !b
+border-image: none;${0}
+endsnippet
+
+snippet bdi:w "-webkit-border-image:url(|) 0 0 0 0 stretch stretch;" !b
+-webkit-border-image:url(${1;PATH}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};${0}
+endsnippet
+
+snippet bdi:m "-moz-border-image:url(|) 0 0 0 0 stretch stretch;" !b
+-mox-border-image:url(${1;PATH}) ${2:0} ${3:0} ${4:0} ${5:0} ${6:stretch} ${7:stretch};${0}
+endsnippet
+
+snippet bdti "border-top-image: url(PATH);" !b
+border-top-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdti:n "border-top-image: none;" !b
+border-top-image: none;${0}
+endsnippet
+
+snippet bdri "border-right-image: url(PATH);" !b
+border-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdri:n "border-right-image: none;" !b
+border-right-image: none;${0}
+endsnippet
+
+snippet bdbi "border-bottom-image: url(PATH);" !b
+border-bottom-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbi:n "border-bottom-image: none;" !b
+border-bottom-image: none;${0}
+endsnippet
+
+snippet bdli "border-left-image: url(PATH);" !b
+border-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdli:n "border-left-image: none;" !b
+border-left-image: none;${0}
+endsnippet
+
+snippet bdci "border-corner-image: url(PATH);" !b
+border-corner-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdci:n "border-corner-image: none;" !b
+border-corner-image: none;${0}
+endsnippet
+
+snippet bdci:c "border-corner-image: none;" !b
+border-corner-image: continue;${0}
+endsnippet
+###TOPLEFT
+snippet bdtli "border-top-left-image: url(PATH);" !b
+border-top-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdtli:n "border-top-left-image: none;" !b
+border-top-left-image: none;${0}
+endsnippet
+
+snippet bdtli:c "border-top-left-image: none;" !b
+border-top-left-image: continue;${0}
+endsnippet
+## TOPRIGHT
+snippet bdtri "border-top-right-image: url(PATH);" !b
+border-top-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdtri:n "border-top-right-image: none;" !b
+border-top-right-image: none;${0}
+endsnippet
+
+snippet bdtri:c "border-top-right-image: none;" !b
+border-top-right-image: continue;${0}
+endsnippet
+### BOTTOM RIGHT
+snippet bdbri "border-bottom-right-image: url(PATH);" !b
+border-bottom-right-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbri:n "border-bottom-right-image: none;" !b
+border-bottom-right-image: none;${0}
+endsnippet
+
+snippet bdbri:c "border-bottom-right-image: none;" !b
+border-bottom-right-image: continue;${0}
+endsnippet
+### BOTTOM LEFT
+snippet bdbli "border-bottom-left-image: url(PATH);" !b
+border-bottom-left-image: url(${1:PATH)});${0}
+endsnippet
+
+snippet bdbli:n "border-bottom-left-image: none;" !b
+border-bottom-left-image: none;${0}
+endsnippet
+
+snippet bdbli:c "border-bottom-left-image: none;" !b
+border-bottom-left-image: continue;${0}
+endsnippet
+
+### BORDER FIT
+
+snippet bdf "border-fit: XX;" !b
+border-fit: ${1};${0}
+endsnippet
+
+snippet bdf:c "border-fit: clip;" !b
+border-fit: clip;${0}
+endsnippet
+
+snippet bdf:r "border-fit: repeat;" !b
+border-fit: repeat;${0}
+endsnippet
+
+snippet bdf:sc "border-fit: scale;" !b
+border-fit: scale;${0}
+endsnippet
+
+snippet bdf:st "border-fit: stretch;" !b
+border-fit: stretch;${0}
+endsnippet
+
+snippet bdf:ow "border-fit: overwrite;" !b
+border-fit: overwrite;${0}
+endsnippet
+
+snippet bdf:of "border-fit: overflow;" !b
+border-fit: overflow;${0}
+endsnippet
+
+snippet bdf:sp "border-fit: space;" !b
+border-fit: space;${0}
+endsnippet
+
+snippet bds "border-style: XX;" !b
+border-style: ${1};${0}
+endsnippet
+
+snippet bds:n "border-style: none;" !b
+border-style: none;${0}
+endsnippet
+
+snippet bds:h "border-style: hidden;" !b
+border-style: hidden;${0}
+endsnippet
+
+snippet bds:dt "border-style: dotted;" !b
+border-style: dotted;${0}
+endsnippet
+
+snippet bds:ds "border-style: dashed;" !b
+border-style: dashed;${0}
+endsnippet
+
+snippet bds:s "border-style: solid;" !b
+border-style: solid;${0}
+endsnippet
+
+snippet bds:db "border-style: double;" !b
+border-style: double;${0}
+endsnippet
+
+snippet bds:dtds "border-style: dot-dash;" !b
+border-style: dot-dash;${0}
+endsnippet
+
+snippet bds:dtdtds "border-style: dot-dot-dash;" !b
+border-style: dot-dot-dash;${0}
+endsnippet
+
+snippet bds:w "border-style: wave;" !b
+border-style: wave;${0}
+endsnippet
+
+snippet bds:g "border-style: groove;" !b
+border-style: groove;${0}
+endsnippet
+
+snippet bds:r "border-style: ridge;" !b
+border-style: ridge;${0}
+endsnippet
+
+snippet bds:i "border-style: inset;" !b
+border-style: inset;${0}
+endsnippet
+
+snippet bds:o "border-style: outset;" !b
+border-style: outset;${0}
+endsnippet
+
+snippet bdt "border-top: XX;" !b
+border-top ${1};${0}
+endsnippet
+
+snippet bdt+ "border-top: 1px solid #000;" !b
+border-top: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdtw(\d+)?" "border-top-width: XXpx;" !br
+border-top-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdts "border-top-style: XX;" !b
+border-top-style: ${1};${0}
+endsnippet
+
+snippet bdts:n "border-top-style: none;" !b
+border-top-style: none;${0}
+endsnippet
+
+snippet bdtc "border-top-color: $000;" !b
+border-top-color: ${1:#000};${0}
+endsnippet
+
+snippet bdb "border-bottom XX;" !b
+border-bottom: ${1};${0}
+endsnippet
+
+snippet bdb+ "border-bottom: 1px solid #000;" !b
+border-bottom: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdbw(\d+)?" "border-bottom-width: XXpx;" !br
+border-bottom-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdbs "border-bottom-style: XX;" !b
+border-bottom-style: ${1};${0}
+endsnippet
+
+snippet bdbs:n "border-bottom-style: none;" !b
+border-bottom-style: none;${0}
+endsnippet
+
+snippet bdbc "border-bottom-color: $000;" !b
+border-bottom-color: ${1:#000};${0}
+endsnippet
+
+snippet bdl "border-left: XX;" !b
+border-left: ${1};${0}
+endsnippet
+
+snippet bdl+ "border-left: 1px solid #000;" !b
+border-left: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdlw(\d+)?" "border-left-width: XXpx;" !br
+border-left-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdls "border-left-style: XX;" !b
+border-left-style: ${1};${0}
+endsnippet
+
+snippet bdls:n "border-left-style: none;" !b
+border-left-style: none;${0}
+endsnippet
+
+snippet bdlc "border-left-color: $000;" !b
+border-left-color: ${1:#000};${0}
+endsnippet
+
+snippet bdr "border-right: XX;" !b
+border-right: ${1};${0}
+endsnippet
+
+snippet bdr+ "border-right: 1px solid #000;" !b
+border-right: ${1:${2:1}${3:px} ${4:solid} ${5:#000}};${0}
+endsnippet
+
+snippet "bdrw(\d+)?" "border-right-width: XXpx;" !br
+border-right-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdrs "border-right-style: XX;" !b
+border-right-style: ${1};${0}
+endsnippet
+
+snippet bdrs:n "border-right-style: none;" !b
+border-right-style: none;${0}
+endsnippet
+
+snippet bdrc "border-right-color: $000;" !b
+border-right-color: ${1:#000};${0}
+endsnippet
+
+snippet "bdw(\d+)?" "border-width: XXpx;" !br
+border-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet bdrz "border-radius: XX;" !b
+border-radius: ${1};${0}
+endsnippet
+
+snippet bdtrrz "border-top-right-radius: XX;" !b
+border-top-right-radius: ${1};${0}
+endsnippet
+
+snippet bdtlrz "border-top-left-radius: XX;" !b
+border-top-left-radius: ${1};${0}
+endsnippet
+
+snippet bdbrrz "border-bottom-right-radius: XX;" !b
+border-bottom-right-radius: ${1};${0}
+endsnippet
+
+snippet bdblrz "border-bottom-left-radius: XX;" !b
+border-bottom-left-radius: ${1};${0}
+endsnippet
+
+snippet bdrz:w "-webkit-border-radius: XX;" !b
+-webkit-border-radius: ${1};${0}
+endsnippet
+
+snippet bdrz:m "-moz-border-radius: XX;" !b
+-moz-border-radius: ${1};${0}
+endsnippet
+
+### BOTTOM
+
+snippet "b(\d+)?" "bottom: XXpx;" !br
+bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet b:a "bottom: auto;" !b
+bottom: auto;${0}
+endsnippet
+
+### BOX SHADOW
+
+snippet bxsh "box-shadow: 0 0 0 #000;" !b
+box-shadow:${1:${2:0} ${3:0} ${4:0} ${5:#000}};${0}
+endsnippet
+
+snippet bxsh:n "box-shadow: none;" !b
+box-shadow: none;${0}
+endsnippet
+
+snippet bxsh:w "-webkit-box-shadow:0 0 0 #000;" !b
+-webkit-box-shadow:${1:0} ${2:0} ${3:0} ${4:#000};${0}
+endsnippet
+
+snippet bxsh:m "-moz-box-shadow:0 0 0 #000;" !b
+-moz-box-shadow:${1:0} ${2:0} ${3:0} ${4:#000};${0}
+endsnippet
+
+### BOX SIZING
+
+snippet bxz "box-sizing: content-box|border-box;" !b
+box-sizing: ${1}${1/(c)|(b)|..*/(?1:ontent-box)(?2:border-box)/};${0}
+endsnippet
+
+snippet bxz:cb "box-sizing: content-boxl" !b
+box-sizing: content-box;${0}
+endsnippet
+
+snippet bxz:bb "box-sizing: border-box;" !b
+box-sizing: border-box;${0}
+endsnippet
+
+### CAPTIOM
+
+snippet cps "caption-side: top|bottom;" !b
+caption-side: ${1}${1/(t)|(b)|..*/(?1:op)(?2:ottom)/};${0}
+endsnippet
+
+snippet cps:t "caption-side: top;" !b
+caption-side: top;${0}
+endsnippet
+
+snippet cps:b "caption-side: bottom;" !b
+caption-side: bottom;${0}
+endsnippet
+
+### CLEAR
+
+snippet cl "clear: left|right|both|none;" !b
+clear: ${1}${1/(l)|(r)|(b)|(n)|..*/(?1:eft)(?2:ight)(?3:oth)(?4:one)/};${0}
+endsnippet
+
+snippet cl:l "clear: left;" !b
+clear: left;${0}
+endsnippet
+
+snippet cl:r "clear: right;" !b
+clear: right;${0}
+endsnippet
+
+snippet cl:b "clear: both;" !b
+clear: both;${0}
+endsnippet
+
+snippet cl:n "clear: none;" !b
+clear: none;${0}
+endsnippet
+
+### CLIP
+
+snippet cp "clip: XX" !b
+clip: ${1};${0}
+endsnippet
+
+snippet cp:a "clip: auto;" !b
+clip: auto;${0}
+endsnippet
+
+snippet cp:r "clip: rect(XX);" !b
+clip: rect(${1});${0}
+endsnippet
+
+### COLOR
+
+snippet c "color: XX" !b
+color: ${1};${0}
+endsnippet
+
+### CONTENT
+
+snippet ct "content: XX;" !b
+content: ${1};${0}
+endsnippet
+
+snippet ct:n "content: normal;" !b
+content: normal;${0}
+endsnippet
+
+snippet ct:oq "content: open-quote;" !b
+content: open-quote;${0}
+endsnippet
+
+snippet ct:noq "content: no-open-quote;" !b
+content: no-open-quote;${0}
+endsnippet
+
+snippet ct:a "content: attr(XX);" !b
+content: attr(${1});${0}
+endsnippet
+
+snippet ct:c "content: counter(XX);" !b
+content: counter(${1});${0}
+endsnippet
+
+snippet ct:cs "content: counters(XX);" !b
+content: counters(${1});${0}
+endsnippet
+
+### COUNTER
+
+snippet cor "counter-increment: XX;" !b
+counter-increment: ${1};${0}
+endsnippet
+
+snippet coi "counter-reset: XX;" !b
+counter-reset: ${1};${0}
+endsnippet
+
+### CURSOR
+
+snippet cur "cursor: XX;" !b
+cursor: ${1};${0}
+endsnippet
+
+snippet cur:a "cursor: auto;" !b
+cursor: auto;${0}
+endsnippet
+
+snippet cur:d "cursor: default;" !b
+cursor: default;${0}
+endsnippet
+
+snippet cur:c "cursor: crosshair;" !b
+cursor: crosshair;${0}
+endsnippet
+
+snippet cur:ha "cursor: hand;" !b
+cursor: hand;${0}
+endsnippet
+
+snippet cur:he "cursor: help;" !b
+cursor: help;${0}
+endsnippet
+
+snippet cur:m "cursor: move;" !b
+cursor: move;${0}
+endsnippet
+
+snippet cur:p "cursor: pointer;" !b
+cursor: pointer;${0}
+endsnippet
+
+snippet cur:t "cursor: text;" !b
+cursor: text;${0}
+endsnippet
+
+### DISPLAY
+
+snippet d "display: n|b|i|ib" !b
+display: ${1}${1/(n)|(b)|(i)|..*/(?1:one)(?2:lock)(?3:nline)/};${0}
+endsnippet
+
+snippet d:n "display: none;" !b
+display: none;${0}
+endsnippet
+
+snippet d:b "display: block;" !b
+display: block;${0}
+endsnippet
+
+snippet d:i "display: inline;" !b
+display: inline;${0}
+endsnippet
+
+snippet d:ib "display: inline-block;" !b
+display: inline-block;${0}
+endsnippet
+
+snippet d:li "display: list-item;" !b
+display: list-item;${0}
+endsnippet
+
+snippet d:ri "display: run-in;" !b
+display: run-in;${0}
+endsnippet
+
+snippet d:cp "display: compact;" !b
+display: compact;${0}
+endsnippet
+
+snippet d:tb "display: table;" !b
+display: table;${0}
+endsnippet
+
+snippet d:itb "display: inline-table;" !b
+display: inline-table;${0}
+endsnippet
+
+snippet d:tbcp "display: table-caption;" !b
+display: table-caption;${0}
+endsnippet
+
+snippet d:tbcl "display: table-column;" !b
+display: table-column;${0}
+endsnippet
+
+snippet d:tbclg "display: table-column-group;" !b
+display: table-column-group;${0}
+endsnippet
+
+snippet d:tbhg "display: table-header-group;" !b
+display: table-header-group;${0}
+endsnippet
+
+snippet d:tbfg "display: table-footer-group;" !b
+display: table-footer-group;${0}
+endsnippet
+
+snippet d:tbr "display: table-row;" !b
+display: table-row;${0}
+endsnippet
+
+snippet d:tbrg "display: table-row-group;" !b
+display: table-row-group;${0}
+endsnippet
+
+snippet d:tbc "display: table-cell;" !b
+display: table-cell;${0}
+endsnippet
+
+snippet d:rb "display: ruby;" !b
+display: ruby;${0}
+endsnippet
+
+snippet d:rbb "display: ruby-base;" !b
+display: ruby-base;${0}
+endsnippet
+
+snippet d:rbbg "display: ruby-base-group;" !b
+display: ruby-base-group;${0}
+endsnippet
+
+snippet d:rbt "display: ruby-text;" !b
+display: ruby-text;${0}
+endsnippet
+
+snippet d:rbtg "display: ruby-text-group;" !b
+display: ruyb-text-group;${0}
+endsnippet
+
+### EMPTY CELLS
+
+snippet ec "empty-cells: show|hide;" !b
+empty-cells: ${1}${1/(s)|(h)|..*/(?1:how)(?2:ide)/};${0}
+endsnippet
+
+snippet ec:s "empty-cells: show;" !b
+empty-cells: show;${0}
+endsnippet
+
+snippet ec:h "empty-cells: hide;" !b
+empty-cells: hide;${0}
+endsnippet
+
+### FLOAT
+
+snippet fl "float: left|right|none;" !b
+float: ${1}${1/(l)|(r)|(n)|..*/(?1:eft)(?2:ight)(?3:one)/};${0}
+endsnippet
+
+snippet fl:l "float: left;" !b
+float: left;${0}
+endsnippet
+
+snippet fl:r "float: right;" !b
+float: right;${0}
+endsnippet
+
+snippet fl:n "float: none;" !b
+float: none;${0}
+endsnippet
+
+### FONT
+
+snippet "f(\+)?" "font: STYLE VARIANT WEIGHT SIZE/LINE-HEIGHT FAMILY;" !br
+font: ${1:${2:STYLE}${2/(n)|(i)|(o)|..*/(?1:ormal)(?2:talic)(?3:blique)/} ${3:VARIANT}${3/(n)|(s)|..*/(?1:ormal)(?2:mall-caps)/} ${4:WEIGHT}${4/(n)|(b)|(l)|..*/(?1:ormal)(?2:old)(?3:ighter)/} ${5:size}/${6:LINE-HEIGHT} ${7:FAMILY}};${0}
+endsnippet
+
+snippet fw "font-weight: XX" !b
+font-weight: ${1};${0}
+endsnippet
+
+snippet fw:n "font-weight: normal" !b
+font-weight: normal;${0}
+endsnippet
+
+snippet fw:b "font-weight: bold" !b
+font-weight: bold;${0}
+endsnippet
+
+snippet fw:br "font-weight: bolder" !b
+font-weight: bolder;${0}
+endsnippet
+
+snippet fw:lr "font-weight: lighter" !b
+font-weight: lighter;${0}
+endsnippet
+
+snippet fs "font-style: normal|italic|oblique;" !b
+font-style: ${1}${1/(n)|(i)|(o)|..*/(?1:ormal)(?2:talic)(?3:blique)/};${0}
+endsnippet
+
+snippet fs:n "font-style: normal;" !b
+font-style: normal;${0}
+endsnippet
+
+snippet fs:i "font-style: italic;" !b
+font-style: italic;${0}
+endsnippet
+
+snippet fs:o "font-style: oblique;" !b
+font-style: oblique;${0}
+endsnippet
+
+snippet fv "font-variant: normal|small-caps" !b
+font-variant: ${1}${1/(n)|(s)|..*/(?1:ormal)(?2:mall-caps)/};${0}
+endsnippet
+
+snippet fv:n "font-variant: normal;" !b
+font-variant: normal;${0}
+endsnippet
+
+snippet "fv:s(c)?" "font-variant: small-caps;" !br
+font-variant: small-caps;${0}
+endsnippet
+
+snippet "fz(\d+)?" "font-size: XXpx;" !br
+font-size: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet fza "font-size-adjust: XX" !b
+font-size-adjust: ${1};${0}
+endsnippet
+
+snippet fza:n "font-size-adjust: none;" !b
+font-size-adjust: none;${0}
+endsnippet
+
+snippet ff "font-family: XX;" !b
+font-family: ${1};${0}
+endsnippet
+
+snippet ff:s "font-family: serif" !b
+font-family: serif;${0}
+endsnippet
+
+snippet ff:ss "font-family: sans-serif" !b
+font-family: sans-serif;${0}
+endsnippet
+
+snippet ff:c "font-family: cursive" !b
+font-family: cursive;${0}
+endsnippet
+
+snippet ff:f "font-family: fantasy" !b
+font-family: fantasy;${0}
+endsnippet
+
+snippet ff:m "font-family: monospace;" !b
+font-family: monospace;${0}
+endsnippet
+
+snippet fef "font-effect: XX" !b
+font-effect: ${1};${0}
+endsnippet
+
+snippet fef:n "font-effect: none;" !b
+font-effect: none;${0}
+endsnippet
+
+snippet "fef:e([g|n])" "font-effect: engrave;" !br
+font-effect: engrave;${0}
+endsnippet
+
+snippet "fef:e([b|m])" "font-effect: emboss;" !br
+font-effect: emboss;${0}
+endsnippet
+
+snippet fef:o "font-effect: outline;" !b
+font-effect: outline;${0}
+endsnippet
+
+snippet fem "font-emphasize: XX;" !b
+font-emphasize: ${1};${0}
+endsnippet
+
+snippet femp "font-emphasize-position: before|after;" !b
+font-emphasize-position: ${1}${1/(b)|(a)|..*/(?1:efore)(?2:fter)};${0}
+endsnippet
+
+snippet femp:b "font-emphasize-position: before;" !b
+font-emphasize-position: before;${0}
+endsnippet
+
+snippet femp:a "font-emphasize-position: after;" !b
+font-emphasize-position: after;${0}
+endsnippet
+
+snippet fems "font-emphasize-style: XX" !b
+font-emphasize-style: ${1};${0}
+endsnippet
+
+snippet fems:n "font-emphasize-style: none" !b
+font-emphasize-style: none;${0}
+endsnippet
+
+snippet fems:ac "font-emphasize-style: accent" !b
+font-emphasize-style: accent;${0}
+endsnippet
+
+snippet fems:dt "font-emphasize-style: dot" !b
+font-emphasize-style: dot;${0}
+endsnippet
+
+snippet fems:c "font-emphasize-style: circle" !b
+font-emphasize-style: circle;${0}
+endsnippet
+
+snippet fems:ds "font-emphasize-style: disc" !b
+font-emphasize-style: disc;${0}
+endsnippet
+
+snippet fsm "font-smooth: XX;" !b
+font-smooth: ${1};${0}
+endsnippet
+
+snippet fsm:a "font-smooth: auto;" !b
+font-smooth: auto;${0}
+endsnippet
+
+snippet fsm:n "font-smooth: never;" !b
+font-smooth: never;${0}
+endsnippet
+
+snippet "fsm:a([l|w])?" "font-smooth: always;" !br
+font-smooth: always;${0}
+endsnippet
+
+snippet fst "font-stretch: XX;" !b
+font-stretch: ${1};${0}
+endsnippet
+
+snippet fst:n "font-stretch: normal;" !b
+font-stretch: normal;${0}
+endsnippet
+
+snippet fst:uc "font-stretch: ultra-condensed;" !b
+font-stretch: ultra-condensed;${0}
+endsnippet
+
+snippet fst:ec "font-stretch: extra-condensed;" !b
+font-stretch: extra-condensed;${0}
+endsnippet
+
+snippet fst:sc "font-stretch: semi-condensed;" !b
+font-stretch: semi-condensed;${0}
+endsnippet
+
+snippet fst:c "font-stretch: condensed;" !b
+font-stretch: condensed;${0}
+endsnippet
+
+snippet fst:e "font-stretch: expanded;" !b
+font-stretch: expanded;${0}
+endsnippet
+
+snippet fst:se "font-stretch: semi-expanded;" !b
+font-stretch: semi-expanded;${0}
+endsnippet
+
+snippet fst:ee "font-stretch: extra-expanded;" !b
+font-stretch: extra-expanded;${0}
+endsnippet
+
+snippet fst:ue "font-stretch: ultra-expanded;" !b
+font-stretch: ultra-expanded;${0}
+endsnippet
+
+
+### HEIGHT
+
+snippet "h(\d+)?" "height: XXpx;" !br
+height: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet h:a "height: auto;" !b
+height: auto;${0}
+endsnippet
+
+### LEFT
+
+snippet "l(\d+)?" "left: XXpx;" !br
+left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet l:a "left: auto;" !b
+left: auto;${0}
+endsnippet
+
+### LETTER-SPACING
+
+snippet lts "letter-spacing: XX" !b
+letter-spacing: ${1};${0}
+endsnippet
+
+### LINE-HEIGHT
+
+snippet lh "line-height: XXpx" !b
+line-height: ${1}${2:px};${0}
+endsnippet
+
+### LIST
+
+snippet lis "list-style: XX;" !b
+list-style: ${1};${0}
+endsnippet
+
+snippet lis:n "list-style: none;" !b
+list-style: none;${0}
+endsnippet
+
+snippet lisp "list-style-position: inside|outside;" !b
+list-style-position: ${1}${1/(i)|(o)|..*/(?1:nside)(?2:utside)/};${0}
+endsnippet
+
+snippet lisp:i "list-style-position: inside;" !b
+list-style-position: inside;${0}
+endsnippet
+
+snippet lisp:o "list-style-position: outside;" !b
+list-style-position: outside;${0}
+endsnippet
+
+snippet list "list-style-type: XX;" !b
+list-style-type: ${1};${0}
+endsnippet
+
+snippet list:n "list-style-type: none;" !b
+list-style-type: none;${0}
+endsnippet
+
+snippet list:d "list-style-type: disc;" !b
+list-style-type: disc;${0}
+endsnippet
+
+snippet list:c "list-style-type: circle;" !b
+list-style-type: circle;${0}
+endsnippet
+
+snippet list:s "list-style-type: square;" !b
+list-style-type: square;${0}
+endsnippet
+
+snippet list:dc "list-style-type: decimal;" !b
+list-style-type: decimal;${0}
+endsnippet
+
+snippet list:dclz "list-style-type: decimal-leading-zero;" !b
+list-style-type: decimal-leading-zero;${0}
+endsnippet
+
+snippet list:lr "list-style-type: lower-roman;" !b
+list-style-type: lower-roman;${0}
+endsnippet
+
+snippet list:ur "list-style-type: upper-roman;" !b
+list-style-type: upper-roman;${0}
+endsnippet
+
+snippet lisi "list-style-image: XX;" !b
+list-style-image: ${1};${0}
+endsnippet
+
+snippet lisi:n "list-style-image: none;" !b
+list-style-image: none;${0}
+endsnippet
+
+
+### MARGIN
+
+snippet "m(\d+)?" "margin: XXpx;" !br
+margin: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet m:a "margin: auto;" !b
+margin: auto;${0}
+endsnippet
+
+snippet m:0 "margin: 0;" !b
+margin: ${1:0};${0}
+endsnippet
+
+snippet m:2 "margin: 0 0;" !b
+margin: ${1:0} ${2:0};${0}
+endsnippet
+
+snippet m:3 "margin: 0 0 0;" !b
+margin: ${1:0} ${2:0} ${3:0};${0}
+endsnippet
+
+snippet m:4 "margin: 0 0 0 0;" !b
+margin: ${1:0} ${2:0} ${3:0} ${4:0};${0}
+endsnippet
+
+snippet "mr(\d+)?" "margin-right: XXpx;" !br
+margin-right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mr:a "margin-right: auto;" !b
+margin-right: auto;${0}
+endsnippet
+
+snippet "ml(\d+)?" "margin-left: XXpx;" !br
+margin-left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet ml:a "margin-left: auto;" !b
+margin-left: auto;${0}
+endsnippet
+
+snippet "mt(\d+)?" "margin-top: XXpx;" !br
+margin-top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mt:a "margin-top: auto;" !b
+margin-top: auto;${0}
+endsnippet
+
+snippet "mb(\d+)?" "margin-bottom: XXpx;" !br
+margin-bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet mb:a "margin-bottom: auto;" !b
+margin-bottom: auto;${0}
+endsnippet
+
+### MAX-HEIGHT
+
+snippet mah "max-height: XX;" !b
+max-height: ${1};${0}
+endsnippet
+
+snippet mah:a "max-height: auto;" !b
+max-height: auto;${0}
+endsnippet
+
+### MAX-WIDTH
+
+snippet maw "max-width: XX;" !b
+max-width: ${1};${0}
+endsnippet
+
+snippet maw:a "max-width: auto;" !b
+max-width: auto;${0}
+endsnippet
+
+### MIN-HEIGHT
+
+snippet mih "min-height: XX;" !b
+min-height: ${1};${0}
+endsnippet
+
+snippet mih:a "min-height: auto;" !b
+min-height: auto;${0}
+endsnippet
+
+### MIN-WIDTH
+
+snippet miw "min-width: XX;" !b
+min-width: ${1};${0}
+endsnippet
+
+snippet miw:a "min-width: auto;" !b
+min-width: auto;${0}
+endsnippet
+
+### OPACITY
+
+snippet op "opacity: XX;" !b
+opacity: ${1};${0}
+endsnippet
+
+snippet op:ie "filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);" !b
+filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100})${0};
+endsnippet
+
+snippet op:ms "-ms-filter:''progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'';" !b
+-ms-filter:''progid:DXImageTransform.Microsoft.Alpha(Opacity=${1:100})'';
+endsnippet
+
+## ORPHANS
+
+snippet orp "orphans: XX;" !b
+orphans: ${1};${0}
+endsnippet
+
+### OUTLINE
+
+snippet o "outline: #000 solid 1px;" !b
+outline: ${1:#000} ${2:solid} ${3:1${4:px}};${0}
+endsnippet
+
+snippet "oo(\d+)?" "outline-offset: XXpx;" !br
+outline-offset: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet "ow(\d+)?" "outline-width: XXpx;" !br
+outline-width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet os "outline-style: XX;" !b
+outline-style: ${1};${0}
+endsnippet
+
+snippet oc "outline-color: #000;" !b
+outline-color: ${1:#000};${0}
+endsnippet
+
+snippet oc:i "outline-color: invert;" !b
+outline-color: invert;${0}
+endsnippet
+
+
+### OVERFLOW
+
+snippet ov "overflow: visible|hidden|scroll|auto" !b
+overflow${1}: ${2}${2/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ov:v "overflow: visible;" !b
+overflow: visible;${0}
+endsnippet
+
+snippet ov:h "overflow: hidden;" !b
+overflow: hidden;${0}
+endsnippet
+
+snippet ov:s "overflow: scroll;" !b
+overflow: scroll;${0}
+endsnippet
+
+snippet ov:a "overflow: auto;" !b
+overflow: auto;${0}
+endsnippet
+
+snippet ovx "overflow-x: visible|hidden|scroll|auto" !b
+overflow-x: ${1}${1/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ovx:h "overflow-x: hidden;" !b
+overflow-x: hidden;${0}
+endsnippet
+
+snippet ovx:s "overflow-x: scroll;" !b
+overflow-x: scroll;${0}
+endsnippet
+
+snippet ovx:a "overflow-x: auto;" !b
+overflow-x: auto;${0}
+endsnippet
+
+snippet ovy "overflow-y: visible|hidden|scroll|auto" !b
+overflow-y: ${1}${1/(v)|(h)|(s)|(a)|..*/(?1:isible)(?2:idden)(?3:croll)(?4:uto)/};${0}
+endsnippet
+
+snippet ovy:h "overflow-y: hidden;" !b
+overflow-y: hidden;${0}
+endsnippet
+
+snippet ovy:s "overflow-y: scroll;" !b
+overflow-y: scroll;${0}
+endsnippet
+
+snippet ovy:a "overflow-y: auto;" !b
+overflow-y: auto;${0}
+endsnippet
+
+
+### PADDING
+
+snippet "p(\d+)?" "padding: XXpx;" !br
+padding: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet p:a "padding: auto;" !b
+padding: auto;${0}
 endsnippet
 
-snippet background "background-attachment: scroll:fixed (background)"
-background-attachment: ${1:scroll/fixed};$0
+snippet p:0 "padding: 0;" !b
+padding: ${1:0};${0}
 endsnippet
 
-snippet background "background-color:  color-hex (background)"
-background-color: #${1:DDD};$0
+snippet p:2 "padding: 0 0;" !b
+padding: ${1:0} ${2:0};${0}
 endsnippet
 
-snippet background "background-color:  color-name (background)"
-background-color: ${1:red};$0
+snippet p:3 "padding: 0 0 0;" !b
+padding: ${1:0} ${2:0} ${3:0};${0}
 endsnippet
 
-snippet background "background-color:  color-rgb (background)"
-background-color: rgb(${1:255},${2:255},${3:255});$0
+snippet p:4 "padding: 0 0 0 0;" !b
+padding: ${1:0} ${2:0} ${3:0} ${4:0};${0}
 endsnippet
 
-snippet background "background-color:  transparent (background)"
-background-color: transparent;$0
+snippet "pr(\d+)?" "padding-right: XXpx;" !br
+padding-right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet background "background-image:  none (background)"
-background-image: none;$0
+snippet pr:a "padding-right: auto;" !b
+padding-right: auto;${0}
 endsnippet
 
-snippet background "background-image:  url (background)"
-background-image: url($1);$0
+snippet "pl(\d+)?" "padding-left: XXpx;" !br
+padding-left: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet background "background-position:  position (background)"
-background-position: ${1:top left/top center/top right/center left/center center/center right/bottom left/bottom center/bottom right/x-% y-%/x-pos y-pos};$0
+snippet pl:a "padding-left: auto;" !b
+padding-left: auto;${0}
 endsnippet
 
-snippet background "background-repeat:  r:r-x:r-y:n-r (background)"
-background-repeat: ${1:repeat/repeat-x/repeat-y/no-repeat};$0
+snippet "pt(\d+)?" "padding-top: XXpx;" !br
+padding-top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet background "background:  color image repeat attachment position (background)"
-background:${6: #${1:DDD}} url($2) ${3:repeat/repeat-x/repeat-y/no-repeat} ${4:scroll/fixed} ${5:top left/top center/top right/center left/center center/center right/bottom left/bottom center/bottom right/x-% y-%/x-pos y-pos};$0
+snippet pt:a "padding-top: auto;" !b
+padding-top: auto;${0}
 endsnippet
 
-snippet border "border-bottom-color: size style color (border)"
-border-bottom-color: #${1:999};$0
+snippet "pb(\d+)?" "padding-bottom: XXpx;" !br
+padding-bottom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet border "border-bottom-style: size style color (border)"
-border-bottom-style: ${1:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+snippet pb:a "padding-bottom: auto;" !b
+padding-bottom: auto;${0}
 endsnippet
 
-snippet border "border-bottom-width: size style color (border)"
-border-bottom-width: ${1:1}px ${2:solid} #${3:999};$0
+### PAGE-BREAK
+
+snippet pgbb "page-break-before: XX;" !b
+page-break-before: ${1};${0}
+endsnippet
+
+snippet pgbb:au "page-break-before: auto;" !b
+page-break-before: auto;${0}
+endsnippet
+
+snippet pgbb:al "page-break-before: always;" !b
+page-break-before: always;${0}
+endsnippet
+
+snippet pgbb:l "page-break-before: left;" !b
+page-break-before: left;${0}
+endsnippet
+
+snippet pgbb:r "page-break-before: right;" !b
+page-break-before: right;${0}
+endsnippet
+
+snippet pgbi "page-break-inside: XX;" !b
+page-break-inside: ${1};${0}
+endsnippet
+
+snippet pgbi:au "page-break-inside: auto;" !b
+page-break-inside: auto;${0}
+endsnippet
+
+snippet pgbi:av "page-break-inside: avoid;" !b
+page-break-inside: avoid;${0}
+endsnippet
+
+snippet pgba "page-break-after: XX;" !b
+page-break-after: ${1}${0}
+endsnippet
+
+snippet pgba:au "page-break-after: auto" !b
+page-break-after: auto;${0}
+endsnippet
+
+snippet pgba:al "page-break-after: always" !b
+page-break-after: always;${0}
+endsnippet
+
+snippet pgba:l "page-break-after: left" !b
+page-break-after: left;${0}
+endsnippet
+
+snippet pgba:r "page-break-after: right" !b
+page-break-after: right;${0}
+endsnippet
+
+
+### POSITION
+
+snippet pos "position: s|a|r|f;" !b
+position: ${1}${1/(s)|(a)|(r)|(f)|..*/(?1:tatic)(?2:bsolute)(?3:elative)(?4:ixed)/};${0}
+endsnippet
+
+snippet pos:s "position: static;" !b
+position: static;${0}
+endsnippet
+
+snippet pos:a "position: absolute;" !b
+position: absolute;${0}
+endsnippet
+
+snippet pos:r "position: relative;" !b
+position: relative;${0}
+endsnippet
+
+snippet pos:f "position: fixed;" !b
+position: fixed;${0}
+endsnippet
+
+### QUOTES
+
+snippet q "quotes: XX;" !b
+quotes: ${1};${0}
+endsnippet
+
+snippet q:n "quotes: none;" !b
+quotes: none;${0}
+endsnippet
+
+snippet q:ru "quotes: ''\00AB'' ''\00BB'' ''\201E'' ''\201C'';;" !b
+quotes: ${1:''\00AB'' ''\00BB'' ''\201E'' ''\201C''};${0}
+endsnippet
+
+snippet q:en "quotes:''\201C'' ''\201D'' ''\2018'' ''\2019'';" !b
+quotes: ${1:''\201C'' ''\201D'' ''\2018'' ''\2019''};${0}
+endsnippet
+
+### RESIZE
+
+snippet rz "resize: none|both|horizontal|vertical;" !b
+resize: ${1}${1/(n)|(b)|(h)|(v)|..*/(?1:one)(?2:oth)(?3:orizontal)(?4:ertical)/};${0}
+endsnippet
+
+snippet rz:n "resize: none;" !b
+resize: none;${0}
+endsnippet
+
+snippet rz:b "resize: both;" !b
+resize: both;${0}
+endsnippet
+
+snippet rz:h "resize: horizontal;" !b
+resize: horizontal;${0}
+endsnippet
+
+snippet rz:v "resize: vertical;" !b
+resize: vertical;${0}
+endsnippet
+
+
+### RIGHT
+
+snippet "r(\d+)?" "right: XXpx;" !br
+right: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
+endsnippet
+
+snippet r:a "right: auto;" !b
+right: auto;${0}
+endsnippet
+
+### TABLE
+
+snippet tbl "table-layout: auto|fixed;" !b
+table-layout: ${1}${1/(a)|(f)|..*/(?1:uto)(?2:ixed)/};${0}
+endsnippet
+
+snippet tbl:a "table-layout: auto;" !b
+table-layout: auto;${0}
+endsnippet
+
+snippet tbl:f "table-layout: fixed;" !b
+table-layout: fixed;${0}
+endsnippet
+
+### TEXT-ALIGN
+
+snippet ta "text-align: left|right|center;" !b
+text-align: ${1}${1/(l)|(r)|(c)|..*/(?1:eft)(?2:ight)(?3:enter)/};${0}
+endsnippet
+
+snippet ta:l "text-align: left;" !b
+text-align: left;${0}
+endsnippet
+
+snippet ta:r "text-align: right;" !b
+text-align: right;${0}
+endsnippet
+
+snippet ta:c "text-align: center;" !b
+text-align: center;${0}
+endsnippet
+
+snippet tal "text-align-last: left|right|center|auto;" !b
+text-align-last: ${1}${1/(l)|(r)|(c)|(a)|..*/(?1:eft)(?2:ight)(?3:enter)(?4:uto)/};${0}
+endsnippet
+
+snippet tal:l "text-align-last: left" !b
+text-align-last: left;${0}
+endsnippet
+
+snippet tal:r "text-align-last: right" !b
+text-align-last: right;${0}
+endsnippet
+
+snippet tal:c "text-align-last: center" !b
+text-align-last: center;${0}
+endsnippet
+
+snippet tal:a "text-align-last: auto" !b
+text-align-last: auto;${0}
+endsnippet
+
+### TEXT-DECORATIOM
+
+snippet td "text-decoration: none|underline|overline|line-through;" !b
+text-decoration: ${1}${1/(n)|(u)|(o)|(l)|..*/(?1:one)(?2:nderline)(?3:verline)(4:ine-through)/};${0}
+endsnippet
+
+snippet td:n "text-decoration: none;" !b
+text-decoration: none;${0}
+endsnippet
+
+snippet td:u "text-decoration: underline;" !b
+text-decoration: underline;${0}
 endsnippet
 
-snippet border "border-bottom: size style color (border)"
-border-bottom: ${1:1}px ${2:solid} #${3:999};$0
+snippet td:o "text-decoration: overline;" !b
+text-decoration: overline;${0}
 endsnippet
 
-snippet border "border-color: color (border)"
-border-color: ${1:999};$0
+snippet td:l "text-decoration: line-through;" !b
+text-decoration: line-through;${0}
 endsnippet
 
-snippet border "border-left-color: color (border)"
-border-right-color: #${1:999};$0
+### TEXT-EMPHASIS
+
+snippet te "text-emphasis: XX;" !b
+text-emphasis: ${1};${0}
+endsnippet
+
+snippet te:n "text-emphasis: none;" !b
+text-emphasis: none;${0}
+endsnippet
+
+snippet te:ac "text-emphasis: accent;" !b
+text-emphasis: accent;${0}
+endsnippet
+
+snippet te:dt "text-emphasis: dot;" !b
+text-emphasis: dot;${0}
+endsnippet
+
+snippet te:c "text-emphasis: circle;" !b
+text-emphasis: circle;${0}
+endsnippet
+
+snippet te:ds "text-emphasis: disc;" !b
+text-emphasis: disc;${0}
+endsnippet
+
+snippet te:b "text-emphasis: before;" !b
+text-emphasis: before;${0}
 endsnippet
 
-snippet border "border-left-style: style (border)"
-border-left-style: ${1:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+snippet te:a "text-emphasis: after;" !b
+text-emphasis: after;${0}
 endsnippet
+
+### TEXT-HEIGHT
 
-snippet border "border-left-width: size (border)"
-border-left-width: ${1:1}px
+snippet "th(\d+)?" "text-height: XXpx;" !br
+text-height: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet border "border-left: size style color (border)"
-border-left: ${1:1}px ${2:solid} #${3:999};$0
+snippet th:a "text-height: auto;" !b
+text-height: auto;${0}
 endsnippet
 
-snippet border "border-right-color: color (border)"
-border-right-color: #${1:999};$0
+snippet th:f "text-height: font-size;" !b
+text-height: font-size;${0}
 endsnippet
 
-snippet border "border-right-style: style (border)"
-border-right-style: ${1:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+snippet th:t "text-height: text-size;" !b
+text-height: text-size;${0}
 endsnippet
 
-snippet border "border-right-width: size (border)"
-border-right-width: ${1:1}px
+snippet th:m "text-height: max-size;" !b
+text-height: max-size;${0}
 endsnippet
 
-snippet border "border-right: size style color (border)"
-border-right: ${1:1}px ${2:solid} #${3:999};$0
+### TEXT_INDENT
+
+snippet "ti(\d+)?" "text-indent: XXpx;" !br
+text-indent: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet border "border-style: style (border)"
-border-style: ${1:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+snippet ti:- "text-indent: -9999px;" !b
+text-indent: -9999px;${0}
 endsnippet
+
+### TEXT-JUSTIFY
 
-snippet border "border-top-color: color (border)"
-border-top-color: #${1:999};$0
+snippet tj "text-justify: XX;" !b
+text-justify: ${1};${0}
 endsnippet
 
-snippet border "border-top-style: style (border)"
-border-top-style: ${1:none/hidden/dotted/dashed/solid/double/groove/ridge/inset/outset};$0
+snippet tj:a "text-justify: auto;" !b
+text-justify: auto;${0}
 endsnippet
 
-snippet border "border-top-width: size (border)"
-border-top-width: ${1:1}px
+snippet tj:iw "text-justify: inter-word;" !b
+text-justify: inter-word;${0}
 endsnippet
 
-snippet border "border-top: size style color (border)"
-border-top: ${1:1}px ${2:solid} #${3:999};$0
+snippet tj:ii "text-justify: inter-ideograph;" !b
+text-justify: inter-ideograph;${0}
 endsnippet
 
-snippet border "border-width: width (border)"
-border-width: ${1:1px};$0
+snippet tj:ic "text-justify: inter-cluster;" !b
+text-justify: inter-cluster;${0}
 endsnippet
 
-snippet border "border:   size style color (border)"
-border: ${1:1px} ${2:solid} #${3:999};$0
+snippet tj:d "text-justify: distribute;" !b
+text-justify: distribute;${0}
 endsnippet
 
-snippet clear "clear: value (clear)"
-clear: ${1:left/right/both/none};$0
+snippet tj:k "text-justify: kashida;" !b
+text-justify: kashida;${0}
 endsnippet
 
-snippet color "color:  color-hex (color)"
-color: #${1:DDD};$0
+snippet tj:t "text-justify: tibetan;" !b
+text-justify: tibetan;${0}
 endsnippet
 
-snippet color "color:  color-name (color)"
-color: ${1:red};$0
+### TEXT-OUTLINE
+
+snippet "to(\+)?" "text-outline: 0 0 #000;" !br
+text-outline: ${1:0} ${2:0} ${3:#000};${0}
 endsnippet
 
-snippet color "color:  color-rgb (color)"
-color: rgb(${1:255},${2:255},${3:255});$0
+snippet to:n "text-outline: none;" !b
+text-outline: none;${0}
 endsnippet
+
+### TEXT-REPLACE 
 
-snippet cursor "cursor: type (cursor)"
-cursor: ${1:default/auto/crosshair/pointer/move/*-resize/text/wait/help};$0
+snippet tr "text-replace: XX;" !b
+text-replace: ${1};${0}
 endsnippet
 
-snippet cursor "cursor: url (cursor)"
-cursor: url($1);$0
+snippet tr:n "text-replace: none;" !b
+text-replace: none;${0}
 endsnippet
 
-snippet direction "direction: ltr|rtl (direction)"
-direction: ${1:ltr|rtl};$0
+snippet tt "text-transform: none|capitalize|uppercase|lowercase" !b
+text-transform: ${1}${1/(n)|(c)|(u)|(l)|..*/(?1:one)(?2:apitalize)(?3:ppercase)(?4:owercase)/};${0}
 endsnippet
 
-snippet display "display: block (display)"
-display: block;$0
+snippet tt:n "text-transform: none;" !b
+text-transform: none;${0}
 endsnippet
 
-snippet display "display: common-types (display)"
-display: ${1:none/inline/block/list-item/run-in/compact/marker};$0
+snippet tt:c "text-transform: capitalize;" !b
+text-transform: capitalize;${0}
 endsnippet
 
-snippet display "display: inline (display)"
-display: inline;$0
+snippet tt:u "text-transform: uppercase;" !b
+text-transform: uppercase;${0}
 endsnippet
 
-snippet display "display: table-types (display)"
-display: ${1:table/inline-table/table-row-group/table-header-group/table-footer-group/table-row/table-column-group/table-column/table-cell/table-caption};$0
+snippet tt:l "text-transform: lowercase;" !b
+text-transform: lowercase;${0}
 endsnippet
 
-snippet float "float: left:right:none (float)"
-float: ${1:left/right/none};$0
+### TEXT-WRAP
+
+snippet tw "text-wrap: XX" !b
+text-wrap: ${1};${0}
 endsnippet
 
-snippet font "font-family:   family (font)"
-font-family: ${1:Arial, "MS Trebuchet"}, ${2:sans-}serif;$0
+snippet tw "text-wrap: XX" !b
+text-wrap: ${1};${0}
 endsnippet
 
-snippet font "font-size: size (font)"
-font-size: ${1:100%};$0
+snippet tw:n "text-wrap: normal" !b
+text-wrap: normal;${0}
 endsnippet
 
-snippet font "font-style:   normal:italic:oblique (font)"
-font-style: ${1:normal/italic/oblique};$0
+snippet tw:no "text-wrap: none" !b
+text-wrap: none;${0}
 endsnippet
 
-snippet font "font-variant:   normal:small-caps (font)"
-font-variant: ${1:normal/small-caps};$0
+snippet tw:u "text-wrap: unrestricted" !b
+text-wrap: unrestricted;${0}
 endsnippet
 
-snippet font "font-weight: weight (font)"
-font-weight: ${1:normal/bold};$0
+snippet tw:s "text-wrap: suppress" !b
+text-wrap: suppress;${0}
 endsnippet
+
+### TEXT-SHADOW
 
-snippet font "font:   style variant weight size:line-height font -family (font)"
-font: ${1:normal/italic/oblique} ${2:normal/small-caps} ${3:normal/bold} ${4:1em/1.5em} ${5:Arial}, ${6:sans-}serif;$0
+snippet "tsh(\+)?" "text-shadow: 0 0 #000;" !br
+text-shadow: ${1:0} ${2:0} ${3:#000};${0}
 endsnippet
 
-snippet font "font: size font (font)"
-font: ${1:75%} ${2:"Lucida Grande", "Trebuchet MS", Verdana,} ${3:sans-}serif;$0
+snippet tsh:n "text-shadow: none;" !b
+text-shadow: none;${0}
 endsnippet
 
-snippet letter "letter-spacing:   length-em (letter)"
-letter-spacing: $1em;$0
+
+### TOP
+
+snippet "t(\d+)?" "top: XXpx;" !br
+top: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet letter "letter-spacing:   length-px (letter)"
-letter-spacing: $1px;$0
+snippet t:a "top: auto;" !b
+top: auto;${0}
 endsnippet
 
-snippet list "list-style-image: url (list)"
-list-style-image: url($1);$0
+### VERTICAL ALIGN
+
+snippet va "vertical-align: XX;" !b
+vertical-align: ${1};${0}
 endsnippet
 
-snippet list "list-style-position: pos (list)"
-list-style-position: ${1:inside/outside};$0
+snippet va:sup "vertical-align: super;" !b
+vertical-align: super;${0}
 endsnippet
 
-snippet list "list-style-type: asian (list)"
-list-style-type: ${1:cjk-ideographic/hiragana/katakana/hiragana-iroha/katakana-iroha};$0
+snippet va:t "vertical-align: top;" !b
+vertical-align: top;${0}
 endsnippet
 
-snippet list "list-style-type: marker(list)"
-list-style-type: ${1:none/disc/circle/square};$0
+snippet va:tt "vertical-align: text-top;" !b
+vertical-align: text-top;${0}
 endsnippet
 
-snippet list "list-style-type: numeric (list)"
-list-style-type: ${1:decimal/decimal-leading-zero/zero};$0
+snippet va:m "vertical-align: middle;" !b
+vertical-align: middle;${0}
 endsnippet
 
-snippet list "list-style-type: other (list)"
-list-style-type: ${1:hebrew/armenian/georgian};$0
+snippet va:bl "vertical-align: baseline;" !b
+vertical-align: baseline;${0}
 endsnippet
 
-snippet list "list-style-type: roman-alpha-greek (list)"
-list-style-type: ${1:lower-roman/upper-roman/lower-alpha/upper-alpha/lower-greek/lower-latin/upper-latin};$0
+snippet va:b "vertical-align: bottom;" !b
+vertical-align: bottom;${0}
 endsnippet
 
-snippet list "list-style: type position image (list)"
-list-style: ${1:none/disc/circle/square/decimal/zero} ${2:inside/outside} url($3);$0
+snippet va:tb "vertical-align: text-bottom;" !b
+vertical-align: text-bottom;${0}
 endsnippet
 
-snippet margin "margin-bottom: length (margin)"
-margin-bottom: ${1:20px};$0
+snippet va:sub "vertical-align: sub" !b
+vertical-align: sub;${0}
 endsnippet
+
+### VISIBILITY
 
-snippet margin "margin-left: length (margin)"
-margin-left: ${1:20px};$0
+snippet v "visibility: visible|hidden|collapse;" !b
+visibility: ${1}${1/(v)|(h)|(c)|..*/(?1:isible)(?2:idden)(?3:ollapse)/};${0}
 endsnippet
 
-snippet margin "margin-right: length (margin)"
-margin-right: ${1:20px};$0
+snippet v:v "visibility: visible;" !b
+visibility: visible;${0}
 endsnippet
 
-snippet margin "margin-top: length (margin)"
-margin-top: ${1:20px};$0
+snippet v:v "visibility: hidden;" !b
+visibility: hidden;${0}
 endsnippet
 
-snippet margin "margin:   all (margin)"
-margin: ${1:20px};$0
+snippet v:v "visibility: collapse;" !b
+visibility: collapse;${0}
 endsnippet
 
-snippet margin "margin: T R B L (margin)"
-margin: ${1:20px} ${2:0px} ${3:40px} ${4:0px};$0
+### WHITE-SPACE
+
+snippet whs "white-space: XX;" !b
+white-space: ${1};${0}
 endsnippet
 
-snippet margin "margin: V H (margin)"
-margin: ${1:20px} ${2:0px};$0
+snippet whs:n "white-space: normal;" !b
+white-space: normal;${0}
 endsnippet
 
-snippet marker "marker-offset: auto (marker)"
-marker-offset: auto;$0
+snippet whs:p "white-space: pre;" !b
+white-space: pre;${0}
 endsnippet
 
-snippet marker "marker-offset: length (marker)"
-marker-offset: ${1:10px};$0
+snippet whs:nw "white-space: nowrap;" !b
+white-space: nowrap;${0}
 endsnippet
 
-snippet overflow "overflow: type (overflow)"
-overflow: ${1:visible/hidden/scroll/auto};$0
+snippet whs:pw "white-space: pre-wrap;" !b
+white-space: pre-wrap;${0}
 endsnippet
 
-snippet padding "padding-bottom: length (margin)"
-padding-bottom: ${1:20px};$0
+snippet whs:pl "white-space: pre-line;" !b
+white-space: pre-line;${0}
 endsnippet
 
-snippet padding "padding-left: length (margin)"
-padding-left: ${1:20px};$0
+snippet whsc "white-space-collapse: XX;" !b
+white-space-collapse: ${1};${0}
 endsnippet
 
-snippet padding "padding-right: length (margin)"
-padding-right: ${1:20px};$0
+snippet whsc:n "white-space-collapse: normal;" !b
+white-space-collapse: normal;${0}
 endsnippet
 
-snippet padding "padding-top: length (margin)"
-padding-top: ${1:20px};$0
+snippet whsc:k "white-space-collapse: keep-all;" !b
+white-space-collapse: keep-all;${0}
 endsnippet
 
-snippet padding "padding:   T R B L (padding)"
-padding: ${1:20px} ${2:0px} ${3:40px} ${4:0px};$0
+snippet whsc:l "white-space-collapse: loose;" !b
+white-space-collapse: loose;${0}
 endsnippet
 
-snippet padding "padding:   V H (padding)"
-padding: ${1:20px} ${2:0px};$0
+snippet whsc:bs "white-space-collapse: break-strict;" !b
+white-space-collapse: break-strict;${0}
 endsnippet
 
-snippet padding "padding:   all (padding)"
-padding: ${1:20px};$0
+snippet whsc:ba "white-space-collapse: break-all;" !b
+white-space-collapse: break-all;${0}
 endsnippet
+
+### WIDOWS
 
-snippet position "position: type (position)"
-position: ${1:static/relative/absolute/fixed};$0
+snippet wid "widows: XX;" !b
+widows: ${1};${0}
 endsnippet
 
-snippet { "properties { } ( } )"
-{
-	/* $1 */
-	$0
+### WIDTH
 
+snippet "w(\d+)?" "width: XXpx;" !br
+width: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`}${2:px};${0}
 endsnippet
 
-snippet scrollbar "scrollbar"
-scrollbar-base-color:       ${1:#CCCCCC};${2:
-scrollbar-arrow-color:      ${3:#000000};
-scrollbar-track-color:      ${4:#999999};
-scrollbar-3dlight-color:    ${5:#EEEEEE};
-scrollbar-highlight-color:  ${6:#FFFFFF};
-scrollbar-face-color:       ${7:#CCCCCC};
-scrollbar-shadow-color:     ${9:#999999};
-scrollbar-darkshadow-color: ${8:#666666};}
+snippet w:a "width: auto;" !b
+width: auto;${0}
 endsnippet
 
-snippet selection "selection"
-$1::-moz-selection,
-$1::selection {
-	color: ${2:inherit};
-	background: ${3:inherit};
-}
+### WORD-BREAK
+
+snippet wob "word-break: XX;" !b
+word-break: ${1};${0}
 endsnippet
 
-snippet text "text-align: left:center:right (txt)"
-text-align: ${1:left/right/center/justify};$0
+snippet wob:n "word-break: normal;" !b
+word-break: normal;${0}
 endsnippet
 
-snippet text "text-decoration: none:underline:overline:line-through:blink (text)"
-text-decoration: ${1:none/underline/overline/line-through/blink};$0
+snippet wob:k "word-break: keep-all;" !b
+word-break: keep-all;${0}
 endsnippet
 
-snippet text "text-indent: length (text)"
-text-indent: ${1:10}px;$0
+snippet wob:l "word-break: loose;" !b
+word-break: loose;${0}
 endsnippet
 
-snippet text "text-shadow: color-hex x y blur (text)"
-text-shadow: #${1:DDD} ${2:10px} ${3:10px} ${4:2px};$0
+snippet wob:bs "word-break: break-strict;" !b
+word-break: break-strict;${0}
 endsnippet
 
-snippet text "text-shadow: color-rgb x y blur (text)"
-text-shadow: rgb(${1:255},${2:255},${3:255}) ${4:10px} ${5:10px} ${6:2px};$0
+snippet wob:ba "word-break: break-all;" !b
+word-break: break-all;${0}
 endsnippet
+
+### WORD-WRAP
 
-snippet text "text-shadow: none (text)"
-text-shadow: none;$0
+snippet tw "word-wrap: XX" !b
+word-wrap: ${1};${0}
 endsnippet
 
-snippet text "text-transform: capitalize:upper:lower (text)"
-text-transform: ${1:capitalize/uppercase/lowercase};$0
+snippet tw "word-wrap: XX" !b
+word-wrap: ${1};${0}
 endsnippet
 
-snippet text "text-transform: none (text)"
-text-transform: none;$0
+snippet tw:n "word-wrap: normal" !b
+word-wrap: normal;${0}
 endsnippet
 
-snippet vertical "vertical-align: type (vertical)"
-vertical-align: ${1:baseline/sub/super/top/text-top/middle/bottom/text-bottom/length/%};$0
+snippet tw:no "word-wrap: none" !b
+word-wrap: none;${0}
 endsnippet
 
-snippet visibility "visibility: type (visibility)"
-visibility: ${1:visible/hidden/collapse};$0
+snippet tw:u "word-wrap: unrestricted" !b
+word-wrap: unrestricted;${0}
 endsnippet
 
-snippet white "white-space:  normal:pre:nowrap (white)"
-white-space: ${1:normal/pre/nowrap};$0
+snippet tw:s "word-wrap: suppress" !b
+word-wrap: suppress;${0}
 endsnippet
 
-snippet word "word-spacing:  length (word)"
-word-spacing: ${1:10px};$0
+
+
+### Z-INDEX
+
+snippet z "z-index: XX;" !b
+z-index: ${1};${0}
 endsnippet
 
-snippet word "word-spacing:  normal (word)"
-word-spacing: normal;$0
+snippet "z(\d+)?" "z-index: XX;" !br
+z-index: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`};${0}
 endsnippet
 
-snippet z "z-index: index (z)"
-z-index: $1;$0
+snippet z:a "z-index: auto;" !b
+z-index: auto;${0}
 endsnippet
 
-# vim:ft=snippets:
+### ZOOM
+
+snippet "zoo(\d+)?" "zoom: XX;" !br
+zoom: ${1:`!p snip.rv = match.group(1) if match.group(1) is not None else " "`};${0}
+endsnippet
