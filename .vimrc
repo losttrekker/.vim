@@ -441,3 +441,10 @@ nnoremap <leader>d :call PhpDoc()<cr>
 
 " key binding for the Gundo (undo preview) plugin
 nnoremap <F7> :GundoToggle<CR>
+
+"TaskList.vim
+map <leader>t <Plug>TaskList
+let g:tlWindowPosition = 1
+let g:tlTokenList = ['FIXME', 'TODO', 'XXX']
+let g:tlRememberPosition = 1
+
