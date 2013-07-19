@@ -1,0 +1,127 @@
+snippet css "css"
+%link(rel='stylesheet' media='screen' type='text/css' href='${1:/css/style.css}')
+endsnippet
+
+snippet js "js"
+%script(type='text/javascript' src='${1:/js/script.js}')
+endsnippet
+
+snippet form "form"
+%form{method: '${1:post}', action: '${2:/}'}$0
+endsnippet
+
+snippet sumbit "sumbit"
+%button(type='submit')
+    %span${1:= "Submit"}$0
+endsnippet
+
+snippet submit "submit"
+%button(type='submit')
+    %span${1:= "Submit"}$0
+endsnippet
+
+snippet label "label"
+%label(for='${1}')
+  %span ${2:$1}$0
+endsnippet
+
+snippet input "input"
+${1:%label(for='${2}')
+  %span ${3}} 
+%input(type='${4}${4/(t)|(e)|(r)|(c)|(s)|(p)|..*/(?1:ext)(?2:mail)(?3:adio)(?4:heckbox)(?5:ubmit)(?6:assword)/}' name='${5:$2}' id='${6:$5}' value='${7:$O5}')$0
+endsnippet
+
+snippet textarea "textarea"
+%textarea(name='${1:user}' id='${2:user}')$0
+endsnippet
+
+snippet select "select"
+%select(name='${1}' id='${2:$1}')${0}
+endsnippet
+
+snippet opt "option" 
+%option $0
+endsnippet
+
+snippet a "a"
+%a{href: '${1:#}'}$0
+endsnippet
+
+snippet div "div"
+%div
+endsnippet
+
+snippet p "p"
+%p
+endsnippet
+
+snippet span "span"
+%span
+endsnippet
+
+snippet small "small" 
+%small 
+endsnippet
+
+snippet img "img"
+%img{src: "${1}"}${0}
+endsnippet
+
+snippet header "header" 
+%header
+endsnippet
+
+snippet section "section"
+%section
+endsnippet
+
+snippet "h([1-6])" "h1-h6" r
+%h`!p snip.rv = match.group(1) if match.group(1) is not None else "  "`${0}
+endsnippet
+
+# TABLE SNIPPETS
+
+snippet table "table"
+%table
+  %tr
+    %th
+      ${1:headers}
+  %tr
+    %td
+      ${2:data}
+endsnippet
+
+snippet tr "tr" 
+%tr
+endsnippet
+
+snippet td "td" 
+%td
+endsnippet
+
+snippet th "th"
+%th
+endsnippet
+
+snippet ul
+%ul
+  %li
+    ${1:item}
+  %li
+    ${0}
+endsnippet
+
+snippet li "li" 
+%li
+endsnippet
+
+
+snippet =rp
+    = render :partial => '${1:partial}'
+endsnippet
+snippet =rpl
+    = render :partial => '${1:partial}', :locals => {}
+endsnippet
+snippet =rpc
+    = render :partial => '${1:partial}', :collection => @$1
+endsnippet
