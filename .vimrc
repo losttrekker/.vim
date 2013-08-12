@@ -339,6 +339,7 @@ set ls=2 			" Always show status line
 set laststatus=2
 
 " set rtp+=$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
 
 "============== Folding ==============
 
