@@ -451,3 +451,6 @@ let g:tlWindowPosition = 1
 let g:tlTokenList = ['FIXME', 'TODO', 'XXX']
 let g:tlRememberPosition = 1
 
+"Taskpaper.vim
+let g:task_paper_date_format = "%Y-%m-%dT%H:%M:%S%z"
+
