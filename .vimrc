@@ -423,6 +423,8 @@ colorscheme solarized
 " this needs to be called after solarized
 highlight ColorColumn guibg=lightyellow
 
+" change help to open in a vertical split
+cnoremap help vert help
 
 " bind NERDTree to F1 (we don't need help)
 nnoremap <f1> :NERDTreeToggle<cr>
@@ -453,4 +455,12 @@ let g:tlRememberPosition = 1
 
 "Taskpaper.vim
 let g:task_paper_date_format = "%Y-%m-%dT%H:%M:%S%z"
+
+"Vim-Notes
+
+:let g:notes_directories = ['~/Dropbox/vim-notes']
+
+"LESS syntax highlighing
+
+au BufNewFile,BufRead *.less set filetype=less
 

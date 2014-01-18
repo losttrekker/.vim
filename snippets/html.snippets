@@ -1,7 +1,15 @@
 ### ELEMENTS
 
+## DIV
+
 snippet div "DIV w/ nothing" !b
 <div>${1}</div>${0}
+endsnippet
+
+snippet "div(\#)([\-|\w]+)?" "DIV element w/ id" !r
+<div id="${1:`!p snip.rv = match.group(2) if match.group(1) and match.group(2) is not None else "idname"`}">
+    ${2}
+</div><!-- #$1 -->${0}
 endsnippet
 
 snippet "div(\.)([\-|\w]+)?" "DIV element w/ classname" !r
@@ -10,12 +18,53 @@ snippet "div(\.)([\-|\w]+)?" "DIV element w/ classname" !r
 </div><!-- .$1 -->${0}
 endsnippet
 
-snippet "div(\#)([\-|\w]+)?" "DIV element w/ id" !r
-<div id="${1:`!p snip.rv = match.group(2) if match.group(1) and match.group(2) is not None else "idname"`}">
-    ${2}
-</div><!-- .$1 -->${0}
+## FOOTER
+
+snippet footer "FOOTER element" !
+<footer>
+    $1
+</footer>$0
 endsnippet
 
+## H1-H6
+
+snippet h1 "H1 element override" !
+<h1>$1</h1>$0
+endsnippet
+
+snippet "h([2-6])" "h2-h6 element" !rb
+<h`!p snip.rv = match.group(1)`>$1</h`!p snip.rv = match.group(1)`>$0
+endsnippet
+
+snippet "h([1-6])\+" "h1-h6 element w/ id and class" !rb
+<h`!p snip.rv = match.group(1)`${1: id="${2:idname}"}${3: class="${4:classname}"}>$5</h`!p snip.rv = match.group(1)`>$0
+endsnippet
+
+snippet "h([1-6])(\#)([\-|\w]+)?" "h1-h6 element w/ id" !r
+<h`!p snip.rv = match.group(1)` id="${1:`!p snip.rv = match.group(3) if match.group(2) and match.group(3) is not None else "idname"`}">
+    ${2}
+</h`!p snip.rv = match.group(1)`><!-- #$1 -->${0}
+endsnippet
+
+snippet "h([1-6])(\.)([\-|\w]+)?" "h1-h6 element w/ class" !r
+<h`!p snip.rv = match.group(1)` class="${1:`!p snip.rv = match.group(3) if match.group(2) and match.group(3) is not None else "classname"`}">
+    ${2}
+</h`!p snip.rv = match.group(1)`><!-- .$1 -->${0}
+endsnippet
+
+## HEADER
+
+snippet header "HEADER element" !
+<header>
+    $1
+</header>$0
+endsnippet
+
+## SPAN
+
+snippet span "SPAN element" !
+<span${1: class="${2:className}"}>$3</span>$0
+endsnippet
 
 ### HTML SKELETONS
 
@@ -95,4 +144,12 @@ snippet html:5 "HTML5 Skeleton" !b
         ${0}
     </body>
 </html>
+endsnippet
+
+## JAVASCRIPT FRAMEWORK
+
+snippet ready "document.ready statement" !
+\$(document).ready(function() {
+    $0
+});
 endsnippet
