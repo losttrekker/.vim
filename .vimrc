@@ -464,3 +464,10 @@ let g:task_paper_date_format = "%Y-%m-%dT%H:%M:%S%z"
 
 au BufNewFile,BufRead *.less set filetype=less
 
+
+
+try
+    source ~/.vimrc_local
+catch
+    touch ~/.vimrc_local
+endtry
