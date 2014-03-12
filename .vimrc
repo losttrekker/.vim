@@ -191,6 +191,7 @@ if filereadable($HOME."/.vim/Markdown.pl")
 	" autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :exe "%! ".$HOME."/.vim/Markdown.pl --html4tags"<cr>
 endif
 
+:let g:netrw_browsex_viewer= "open"
 
 " use regular regex syntax rather than vim regex
 nnoremap / /\v
