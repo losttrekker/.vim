@@ -255,6 +255,10 @@ endfunc
 " map the above function to F5
 nnoremap <f5> :call g:ToggleNuMode()<cr>
 
+" map GundoToggle
+
+noremap <F4> :GundoToggle<CR>
+
 "============= Scrolling & Position Tweaks =============
 
 " show line and column markers
@@ -398,6 +402,7 @@ let g:tex_flavor='latex'
 "============== Pathogen ==============
 
 call pathogen#infect()
+call pathogen#helptags()
 
 
 "============== Plugin Specific Settings ==============
@@ -472,6 +477,10 @@ au BufNewFile,BufRead *.less set filetype=less
 "Tagbar
 
 nmap <F8> :TagbarToggle<CR>
+
+" Open tagbar automatically
+" autocmd VimEnter * nested :TagbarOpen
+autocmd VimEnter * nested :call tagbar#autoopen(0)
 
 try
     source ~/.vimrc_local
