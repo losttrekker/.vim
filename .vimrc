@@ -334,6 +334,10 @@ set smartindent
 
 set backspace=indent,eol,start 	" backspace over everything in insert mode
 
+" GitGutter
+
+" autocmd ColorScheme * highlight clear SignColumn 
+
 " ============== Status Line ==============
 
 set ls=2 			" Always show status line
@@ -465,7 +469,9 @@ let g:task_paper_date_format = "%Y-%m-%dT%H:%M:%S%z"
 
 au BufNewFile,BufRead *.less set filetype=less
 
+"Tagbar
 
+nmap <F8> :TagbarToggle<CR>
 
 try
     source ~/.vimrc_local
