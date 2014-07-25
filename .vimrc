@@ -292,6 +292,10 @@ set backspace=indent,eol,start
 
 au FocusLost * silent! :wa	" save when switching focus 
 
+" For haml
+
+au FileType haml setl sw=4 sts=4
+
 "============= Search & Matching =============
 
 set showcmd			" Show (partial) command in status line.
@@ -337,6 +341,7 @@ set copyindent 		" copy previous indent on autoindenting
 set smartindent
 
 set backspace=indent,eol,start 	" backspace over everything in insert mode
+
 
 " GitGutter
 
@@ -474,6 +479,27 @@ let g:task_paper_date_format = "%Y-%m-%dT%H:%M:%S%z"
 
 au BufNewFile,BufRead *.less set filetype=less
 
+
+"============= Syntastic ===========
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': [] }
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 1
+
+
+"============= Modelines ===========
+"check for file specific commands
+set modeline
+set modelines=5
+
+" Remove Trailing Whitespace
+
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+
 "Tagbar
 
 nmap <F8> :TagbarToggle<CR>
@@ -481,9 +507,3 @@ nmap <F8> :TagbarToggle<CR>
 " Open tagbar automatically
 " autocmd VimEnter * nested :TagbarOpen
 autocmd VimEnter * nested :call tagbar#autoopen(0)
-
-try
-    source ~/.vimrc_local
-catch
-    touch ~/.vimrc_local
-endtry

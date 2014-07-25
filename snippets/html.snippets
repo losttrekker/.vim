@@ -1,5 +1,19 @@
 ### ELEMENTS
 
+## Anchor
+
+snippet a "A w/ nothing" !b
+<a href="${1}">${2}</a>${0}
+endsnippet
+
+snippet "a(\#)([\-|\w]+)?" "A element w/ id" !r
+<a id="${1:`!p snip.rv = match.group(2) if match.group(1) and match.group(2) is not None else "idname"`}" href="${2}"> ${3} </a><!-- #$1 -->${0}
+endsnippet
+
+snippet "a(\.)([\-|\w]+)?" "A element w/ classname" !r
+<div class="${1:`!p snip.rv = match.group(2) if match.group(1) and match.group(2) is not None else "classname"`}" href="${2}"> ${3} </a><!-- .$1 -->${0}
+endsnippet
+
 ## DIV
 
 snippet div "DIV w/ nothing" !b

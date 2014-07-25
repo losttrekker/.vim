@@ -1,6 +1,8 @@
 extends python
 
-# Model Fields
+########################
+#### Model Fields ######
+########################
 
 snippet auto
 ${1:FIELDNAME} = models.AutoField(_('${2}'))
@@ -22,14 +24,12 @@ ${1:FIELDNAME} = models.CommaSeparatedIntegerField(_('${2}'), max_length=${3:100
 ${0}
 endsnippet
 
-snippet date
-${1:FIELDNAME} = models.DateField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True}${5, null=True})
-${0}
+snippet date "model date field" !
+${1:FIELDNAME} = models.DateField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True}) ${0}
 endsnippet
 
-snippet datetime
-${1:FIELDNAME} = models.DateTimeField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True}${5:, null=True})
-${0}
+snippet datetime "model datetime field" !
+${1:FIELDNAME} = models.DateTimeField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True}) ${0}
 endsnippet
 
 snippet decimal
@@ -63,13 +63,11 @@ ${0}
 endsnippet
 
 snippet int
-${1:FIELDNAME} = models.IntegerField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.IntegerField(_('${2}')${3})${0}
 endsnippet
 
 snippet ip
-${1:FIELDNAME} = models.IPAddressField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.IPAddressField(_('${2}'))${0}
 endsnippet
 
 snippet nullbool
@@ -124,13 +122,20 @@ ${0}
 endsnippet
 
 snippet m2m
-${1:FIELDNAME} = models.ManyToManyField(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, symmetrical=False}${10:, through='${11}'}${12:, db_table='${13}'})
+${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}, verbose_name='${3}'${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, symmetrical=False}${10:, through='${11}'}${12:, db_table='${13}'})
 ${0}
 endsnippet
 
 snippet o2o
 ${1:FIELDNAME} = models.OneToOneField(_('${2}'), ${3:OtherModel}${4:, parent_link=True}${5:, related_name='${6}'}${7:, limit_choices_to={'${8}': ${8}}}${9:, to_field='${10}'})
 ${0}
+endsnippet
+
+snippet property "property" !b
+@property
+def ${1:PROPERTY_NAME}(self):
+    ${0}
+    return ${2:self}
 endsnippet
 
 
@@ -293,30 +298,70 @@ snippet model
 class ${1:ModelName}(models.Model):
     """${2:$1 docstring}"""
     ${0}
+    order = PositionField(_('Order'), unique_for_fields=('FIELD_NAME',), help_text='Please enter an integer.') 
     date_modified = models.DateTimeField(_('Date Modified'), auto_now=True, editable=False)
     date_created = models.DateTimeField(_('Date Created'), auto_now_add=True, editable=False)
+
     class Meta:
+        ordering = ['order']
         verbose_name, verbose_name_plural = u'${3:$1}', u'${4:$3s}'
     
     def __unicode__(self):
-        ${6:self.FIELD_NAME}
+        return "%s" % (self.${6:FIELD_NAME})
     
     ${7:def save(self, *args, **kwargs${8:${9:, force_insert=False}${10:, force_update=False}}):
-        ${11:# Adjust save}
         super($1, self).save(*args, **kwargs)}
     
-    ${12:@models.permalink
+    ${11:@models.permalink
     def get_absolute_url(self):
-        return reverse('${13:view_or_url_name}'${14:, args=[${15}]})}
+        return ('${12:view_or_url_name}'${13:, [${14}]})}
+
+endsnippet
+
+snippet modelg "Generic Relationship Model" !b
+class ${1:ModelName}(models.Model):
+    """${2:$1 docstring}"""
+    ${0}
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    order = PositionField(_('Order'), unique_for_fields=('content_type', 'object_id',), help_text='Please enter an integer.') 
+    date_modified = models.DateTimeField(_('Date Modified'), auto_now=True, editable=False)
+    date_created = models.DateTimeField(_('Date Created'), auto_now_add=True, editable=False)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name, verbose_name_plural = u'${3:$1}', u'${4:$3s}'
+    
+    def __unicode__(self):
+        return "%s" % (self.${6:FIELD_NAME})
+    
+    ${7:def save(self, *args, **kwargs${8:${9:, force_update=False}}):
+        super($1, self).save(*args, **kwargs)}
+    
+    ${10:@models.permalink
+    def get_absolute_url(self):
+        return ('${11:view_or_url_name}'${12:, [${13}]})}
+
+
 endsnippet
 
 snippet modeladmin
 class ${1:ModelName}Admin(admin.ModelAdmin):
-    ${2}
+    ${2:prepopulated_fields = {"slug": ("title",)}}
+    inlines = [
+        ${3}
+    ]
+
+    ${4:class Media:
+        js = [ 
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/js/tinymce_setup/tinymce_setup.js',
+        ]}
+    ${0}
 
 admin.site.register($1, $1Admin)
-
-${0}
 endsnippet
 
 snippet r2r
@@ -328,17 +373,35 @@ snippet r2r
 endsnippet
 
 snippet tabularinline
-	class ${1:ModelName}Inline(admin.TabularInline):
-		model = $1
-		extra = ${2:3}
-		${0}
+class ${1:ModelName}Inline(admin.TabularInline):
+    model = $1
+    extra = ${2:1}
+    ${3:max_num = ${4:10}}
+    allow_add = ${5:T}${5/(T)|(F)|..*/(?1:rue)(?2:alse)/}
+    sortable_field_name = '${6:order}'
+    ${7:classes = ('${8:collapsed closed}',)}
+    ${0}
+    ${9:class Media:
+        js = [ 
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/js/tinymce_setup/tinymce_setup.js',
+        ]}
 endsnippet
 
 snippet stackedinline
 class ${1:ModelName}Inline(admin.StackedInline):
     model = $1
-    extra = ${2:3}
+    extra = ${2:1}
+    ${3:max_num = ${4:10}}
+    allow_add = ${5:T}${5/(T)|(F)|..*/(?1:rue)(?2:alse)/}
+    sortable_field_name = '${6:order}'
+    ${7:classes = ('${8:collapsed closed}',)}
     ${0}
+    ${9:class Media:
+        js = [ 
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/js/tinymce_setup/tinymce_setup.js',
+        ]}
 endsnippet
 
 ########################
@@ -362,13 +425,14 @@ endsnippet
 snippet vlist "Generic Class Based List View" !b
 class ${1:ViewName}View(ListView):
     """${2:$1 docstring}"""
-    queryset = '${3}'
-    context_object_name = '${4}'
-    template_name = '${5}'
+    queryset = ${3}
+    context_object_name = '${4:object_list}'
+    template_name = '${5:generic/view.html}'
     ${0}
-    
     def get_context_data(self, **kwargs):
         context = super($1View, self).get_context_data(**kwargs)
+        context['view_title'] = "${6:VIEW_TITLE}"
+        return context
 
     def dispatch(self, request, *args, **kwargs):
         return super($1View, self).dispatch(request, *args, **kwargs)
@@ -377,20 +441,23 @@ endsnippet
 snippet vdetail "Generic Class Based Detail View" !b
 class ${1:ViewName}View(DetailView):
     """${2:$1 docstring}"""
-    model = ${3}
-    context_object_name = '${4}'
-    template_name = '${5}'
+    model = ${3:MODEL}
+    context_object_name = '${4:object}'
+    template_name = '${5:generic/view.html}'
     ${0}
-
     def get_context_data(self, **kwargs):
+        obj = self.get_object()
         context = super($1View, self).get_context_data(**kwargs)
+        context['view_title'] = "${6:obj}"
+        return context
 
-    ${6:def get_queryset(self):
-        queryset = ${7}
+    ${7:def get_queryset(self):
+        queryset = ${8}
         return queryset}
 
     def dispatch(self, request, *args, **kwargs):
         return super($1View, self).dispatch(request, *args, **kwargs)
+
 endsnippet
 
 snippet vform "Generic Class Based From View" !b
@@ -463,3 +530,20 @@ class ${1:ViewName}View(RedirectView):
     def get_redirect_url(self):
         return reverse('${3:SOME_URL}', ${4:kwargs={${5}}})
 endsnippet
+
+########################
+#######  Urls  ########
+########################
+
+snippet urlpatterns "urlpatterns" !b
+urlpatterns ${1:+=} patterns('${2:NAME}',
+    ${0}
+)
+endsnippet
+
+snippet url() "url regex" !
+url(r'^${1:PATTERN}$', ${2:VIEW_NAME}${3:.as_view()}, name='${4:REVERSE_NAME}')${0}
+endsnippet
+
+
+
