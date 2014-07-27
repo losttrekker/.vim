@@ -144,137 +144,189 @@ endsnippet
 #########################
 
 snippet fbool "Form BooleanField"
-${1:FIELDNAME} = forms.BooleanField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'})
-${0}
+${1:FIELDNAME} = forms.BooleanField(
+    label=_('${2}'), ${3:required=False,}
+    ${4:help_text=_('${5}')}
+    
+)${0}
 endsnippet
 
 snippet fchar "Form CharField" !b
-${1:FIELDNAME} = forms.CharField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}}))
-${0}
+${1:FIELDNAME} = forms.CharField(
+    label=_('${2}'), ${3:required=False,}
+    help_text=_('${4}')${5:, widget=${6}},
+    ${7:max_length=${8}}${9:, min_length=${10}}
+)${0}
 endsnippet
 
 snippet fchoice "Form ChoiceField" !b
-${1:FIELDNAME} = forms.ChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
-${0}
+${1:FIELDNAME} = forms.ChoiceField(
+    label=_('${2}'), ${3:required=False,}
+    choices=${4}${5:, widget=${6}}
+)${0}
 endsnippet
 
 snippet ftchoice "Form TypedChoiceField" !b
-${1:FIELDNAME} = forms.ChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
-${0}
+${1:FIELDNAME} = forms.ChoiceField(
+    label=_('${2}'),${3: required=False,}
+    choices=${2},${8: empty_value='${9:None}',}
+    ${10:coerce=${11}}${6:, widget=${7}}
+)${0}
 endsnippet
 
 snippet fdate "Form DateField" !b
-${1:FIELDNAME} = forms.DateField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.DateInput()}})
-${0}
+${1:FIELDNAME} = forms.DateField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}${6: input_formats=[${7}],}
+    ${8:widget=${9:forms.DateInput()}}
+)${0}
 endsnippet
 
 snippet fdatetime "Form DateTimeField" !b
-${1:FIELDNAME} = forms.DateTimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.DateTimeInput()}})
-${0}
+${1:FIELDNAME} = forms.DateTimeField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'), }${6:input_formats=[${7}],}
+    ${8:widget=${9:forms.DateTimeInput()}}
+)${0}
 endsnippet
 
 snippet fdecimal "Form Decimal" !b
-${1:FIELDNAME} = forms.DecimalField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}}${11:, max_digits=${12}}${13:, decimal_places=${14}})
-${0}
+${1:FIELDNAME} = forms.DecimalField(
+    label=_('${2}'), ${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7},}
+    ${8:max_value=${9},}${10: min_value=${10},}
+    ${11:max_digits=${12}}${13:, decimal_places=${14}}
+) ${0}
 endsnippet
 
 snippet femail "Form EmailField" !b
-${1:FIELDNAME} = forms.EmailField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, max_length=${7}}${8:, min_length=${9}})
-${0}
+${1:FIELDNAME} = forms.EmailField(
+    label=_('${2}'),${5: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:max_length=${7}, }${8:min_length=${9}}
+)${0}
 endsnippet
 
 snippet ffile "Form FileField" !b
-${1:FIELDNAME} = forms.FileField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, max_length=${7}}${8:, allow_empty_file=True})
-${0}
+${1:FIELDNAME} = forms.FileField(
+    label=_('${2}'), ${3: required=False,}
+    ${4:help_text=_('${5}'), }
+    ${6:max_length=${7}, }${8:allow_empty_file=True}
+)${0}
 endsnippet
 
 snippet ffilepath "Form FilePathField" !b
-${1:FIELDNAME} = forms.FileField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, path=${7}}${8:, recursive=True}${9:, match='${10}'}${11:, allow_files=False}${12:, allow_folders=False})
-${0}
+${1:FIELDNAME} = forms.FileField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:path=${7},}
+    ${8:recursive=True,}${9: match='${10}',}
+    ${11:allow_files=False}${12:, allow_folders=False}
+)${0}
 endsnippet
 
 snippet ffloat "Form FloatField" !b
-${1:FIELDNAME} = forms.FloatField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}})
-${0}
+${1:FIELDNAME} = forms.FloatField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}}
+)${0}
 endsnippet
 
 snippet ffile "Form ImageField" !b
-${1:FIELDNAME} = forms.ImageField(label='${2}'${3:, help_text='${4}'}${5:, required=False})
-${0}
+${1:FIELDNAME} = forms.ImageField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}')}
+)${0}
 endsnippet
 
 snippet fdecimal "Form IntegerField" !b
-${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}})
-${0}
+${1:FIELDNAME} = forms.IntegerField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}')},
+    ${6:widget=${7}}${8:, max_value=${9}}${10:, min_value=${10}}
+)${0}
 endsnippet
 
 snippet fip "Form IP Field" !b
-${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}})
-${0}
+${1:FIELDNAME} = forms.IntegerField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}')}
+)${0}
 endsnippet
 
 snippet fgip "Form Generic IP Field" !b
-${1:FIELDNAME} = forms.IntegerField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, protocol=${9}}${10:, unpack_ipv4=True})
+${1:FIELDNAME} = forms.IntegerField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}}${8:, protocol=${9}}${10:, unpack_ipv4=True}
+)${0}
 endsnippet
 
 snippet fmulti "Form MultipleChoiceField" !b
-${1:FIELDNAME} = forms.MultipleChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
-${0}
+${1:FIELDNAME} = forms.MultipleChoiceField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    choices=${6}${7:, widget=${8}}
+)${0}
 endsnippet
 
 snippet ftchoice "Form TypedMultipleChoiceField" !b
-${1:FIELDNAME} = forms.TypedMultipleChoiceField(choices=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
+${1:FIELDNAME} = forms.TypedMultipleChoiceField(choices=${2}${3:, label=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
 ${0}
 endsnippet
 
 snippet fnbool "Form NullBooleanField"
-${1:FIELDNAME} = forms.NullBooleanField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'})
+${1:FIELDNAME} = forms.NullBooleanField(${2:required=False}${3:, label=_('${4}')}${5:, help_text=_('${6}')})
 ${0}
 endsnippet
 
 snippet fregex "Form RegexField" !b
-${1:FIELDNAME} = forms.RegexField(${2:required=False}${3:, label='${4}'}${5:, help_text='${6}'}${7:, regex='${8}'}${9:, max_length=${10}}${11:, min_length=${12}}${13:, error_messages={${14}}})
+${1:FIELDNAME} = forms.RegexField(${2:required=False}${3:, label=_('${4}')}${5:, help_text=_('${6}')}${7:, regex='${8}'}${9:, max_length=${10}}${11:, min_length=${12}}${13:, error_messages={${14}}})
 ${0}
 endsnippet
 
 snippet fslug "Form SlugField" !b
-${1:FIELDNAME} = forms.SlugField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}})
+${1:FIELDNAME} = forms.SlugField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}})
 ${0}
 endsnippet
 
 snippet ftime "Form TimeField" !b
-${1:FIELDNAME} = forms.TimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.TimeInput()}})
+${1:FIELDNAME} = forms.TimeField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.TimeInput()}})
 ${0}
 endsnippet
 
 snippet furl "Form URLField" !b
-${1:FIELDNAME} = forms.URLField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}})
+${1:FIELDNAME} = forms.URLField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, max_length=${9}}${10:, min_length=${11}})
 ${0}
 endsnippet
 
 snippet fcombo "Form ComboField" !b
-${1:FIELDNAME} = forms.ComboField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]})
+${1:FIELDNAME} = forms.ComboField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]})
 ${0}
 endsnippet
 
 snippet fmulval "Form MultiValueField" !b
-${1:FIELDNAME} = forms.MultiValueField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]}${9:, compress_data(${10})})
+${1:FIELDNAME} = forms.MultiValueField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]}${9:, compress_data(${10})})
 ${0}
 endsnippet
 
 snippet fsplit "Form SplitDateTimeField" !b
-${1:FIELDNAME} = forms.SplitDateTimeField(label='${2}'${3:, help_text='${4}'}${5:, required=False}${6:, input_date_formats=[${7}]}${8:, input_time_formats=[${9}]}${10:, widget=${11}})
+${1:FIELDNAME} = forms.SplitDateTimeField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, input_date_formats=[${7}]}${8:, input_time_formats=[${9}]}${10:, widget=${11}})
 ${0}
 endsnippet
 
 snippet fmchoice "Form ModelChoiceField" !b
-${1:FIELDNAME} = forms.ModelChoiceField(queryset=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}}${8:, empty_label='${9}'})
+${1:FIELDNAME} = forms.ModelChoiceField(queryset=${2}${3:, label=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, empty_label=_('${9}')})
 ${0}
 endsnippet
 
 snippet fmmchoice "Form ModelMultipleChoiceField" !b
-${1:FIELDNAME} = forms.ModelMultipleChoiceField(queryset=${2}${3:, label='${4}'}${5:, required=False}${6:, widget=${7}})
-${0}
+${1:FIELDNAME} = forms.ModelMultipleChoiceField(
+    label=_('${2}'),${3: required=False,}
+    queryset=${4}${5:, widget=${6}}
+)${0}
 endsnippet
 
 
