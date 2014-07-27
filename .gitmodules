@@ -80,6 +80,7 @@
 [submodule "bundle/greplace.vim"]
 	path = bundle/greplace.vim
 	url = https://github.com/skwp/greplace.vim.git
+    ignore = dirty
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
