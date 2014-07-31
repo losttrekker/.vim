@@ -298,7 +298,7 @@ ${0}
 endsnippet
 
 snippet furl "Form URLField" !b
-${1:FIELDNAME} = forms.URLField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, max_length=${9}}${10:, min_length=${11}})
+${1:FIELDNAME} = forms.URLField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}})
 ${0}
 endsnippet
 
@@ -593,7 +593,7 @@ urlpatterns ${1:+=} patterns('${2:NAME}',
 )
 endsnippet
 
-snippet url() "url regex" !
+snippet url "url regex" 
 url(r'^${1:PATTERN}$', ${2:VIEW_NAME}${3:.as_view()}, name='${4:REVERSE_NAME}')${0}
 endsnippet
 

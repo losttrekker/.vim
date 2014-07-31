@@ -11,6 +11,8 @@ if v:version >= 703
 	set cryptmethod=blowfish
 endif
 
+
+
 " use Inconsolata unless overriden
 set gfn=Inconsolata\ Medium\ 12
 
@@ -103,6 +105,7 @@ nnoremap <S-Tab> :bnext<CR>
 " toggle paste mode (to paste properly indented text)
 nnoremap <F3> :set invpaste paste?<CR>
 set pastetoggle=<F3>
+inoremap <C-S-P><C-S-p> <F3>
 set showmode
 
 " run current PHP file through php interpreter
@@ -110,9 +113,15 @@ set showmode
 " run current PHP file through php linter (syntax check) check
 :autocmd FileType php noremap <leader>l :!php -l %<CR>
 
+" ============== Clipboard ==========================
 " use \y and \p to copy and paste from system clipboard
 
-"set clipboard=unnamed
+if has('clipboard')
+    set clipboard=unnamed
+endif
+" if has('unnamedplus')
+"     set clipboard=unnamed,unnamedplus
+" endif
 
 noremap <leader>y "+y
 noremap <leader>Y "+Y
@@ -148,8 +157,8 @@ nnoremap <leader>, ciw<<C-r>"><esc>
 nnoremap <leader>( ciw(<C-r>")<esc>
 
 " surround word/sentence with emp, strong
-noremap <leader>e ciw<emp><C-r>"</emp><esc>
-noremap <leader>E cis<emp><C-r>"</emp><esc>
+noremap <leader>e ciw<em><C-r>"</em><esc>
+noremap <leader>E cis<em><C-r>"</em><esc>
 
 noremap <leader>s ciw<strong><C-r>"</strong><esc>
 noremap <leader>S cis<strong><C-r>"</strong><esc>
@@ -387,6 +396,29 @@ au BufRead,BufNewFile *.txt setfiletype html
 " force php files to be treated as php/html - necessary for snipmate to work
 au BufRead,BufNewFile *.php set filetype=php.html
 
+
+" ===================== Tabs ========================
+set showtabline=2               " File tabs allways visible
+:nmap <C-p> :tabprevious<cr>
+:map <C-p> :tabprevious<cr>
+:imap <C-p> <ESC>:tabprevious<cr>i
+
+:nmap <C-n> :tabnext<cr>
+:map <C-n> :tabnext<cr>
+:imap <C-p> <ESC>:tabnext<cr>i
+
+:nmap <C-t> :tabnew<cr>
+:map <C-t> :tabnew<cr>
+:imap <C-t> <ESC>:tabnew<cr>
+
+
+"============== Plugin Specific Settings ==============
+
+"============== Pathogen ==============
+
+call pathogen#infect()
+call pathogen#helptags()
+"
 " Ultisnips
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
@@ -394,23 +426,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>" 
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-"============== Pathogen ==============
-
-call pathogen#infect()
-call pathogen#helptags()
-
-
-"============== Plugin Specific Settings ==============
 
 " This is necessary to make Gdiff work
 let g:miniBufExplorerMoreThanOne=3
@@ -495,7 +510,21 @@ let g:syntastic_enable_highlighting = 1
 set modeline
 set modelines=5
 
-" Remove Trailing Whitespace
+
+"============= Ack/Grep =================
+"
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a single file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+" set grepprg=grep\ -nH\ $*
+set grepprg=ack
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+" ========== Remove Trailing Whitespace =================
 
 autocmd BufWritePre *.py :%s/\s\+$//e
 
