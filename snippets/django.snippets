@@ -5,61 +5,51 @@ extends python
 ########################
 
 snippet auto
-${1:FIELDNAME} = models.AutoField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.AutoField(_('${2}'))${0}
 endsnippet
 
 snippet bool
-${1:FIELDNAME} = models.BooleanField(_('${2}'), ${3:default=True})
-${0}
+${1:FIELDNAME} = models.BooleanField(_('${2}'), ${3:default=True})${0}
 endsnippet
 
 snippet char
-${1:FIELDNAME} = models.CharField(_('${2}'), max_length=${3:100}${4:, blank=True})
-${0}
+${1:FIELDNAME} = models.CharField(_('${2}'), max_length=${3:100}${4:, blank=True})${0}
 endsnippet
 
 snippet comma
-${1:FIELDNAME} = models.CommaSeparatedIntegerField(_('${2}'), max_length=${3:100}${4:, blank=True})
-${0}
+${1:FIELDNAME} = models.CommaSeparatedIntegerField(_('${2}'), max_length=${3:100}${4:, blank=True})${0}
 endsnippet
 
 snippet date "model date field" !
-${1:FIELDNAME} = models.DateField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True}) ${0}
+${1:FIELDNAME} = models.DateField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True})${0}
 endsnippet
 
 snippet datetime "model datetime field" !
-${1:FIELDNAME} = models.DateTimeField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True}) ${0}
+${1:FIELDNAME} = models.DateTimeField(_('${2}')${3:, auto_now_add=True}${4:, auto_now=True}${5:, blank=True}${6:, null=True})${0}
 endsnippet
 
 snippet decimal
-${1:FIELDNAME} = models.DecimalField((_('${2}'), max_digits=${3}, decimal_places=${4}${5:, blank=True}${6:, null=True})
-${0}
+${1:FIELDNAME} = models.DecimalField((_('${2}'), max_digits=${3}, decimal_places=${4}${5:, blank=True}${6:, null=True})${0}
 endsnippet
 
 snippet email
-${1:FIELDNAME} = models.EmailField(_('${2}'), max_length=${3:75}${4:, blank=True})
-${0}
+${1:FIELDNAME} = models.EmailField(_('${2}'), max_length=${3:75}${4:, blank=True})${0}
 endsnippet
 
 snippet file
-${1:FIELDNAME} = models.FileField(_('${2}') ,upload_to=${3:path/for/upload}, max_length=${4:100})
-${0}
+${1:FIELDNAME} = models.FileField(_('${2}') ,upload_to=${3:path/for/upload}, max_length=${4:100})${0}
 endsnippet
 
 snippet filepath
-${1:FIELDNAME} = models.FilePathField(_('${2}'), path=${3:"/abs/path/to/dir"}${4:, max_length=100}${5:, match="*.ext"}${6:, recursive=True}${7:, blank=True, })
-${0}
+${1:FIELDNAME} = models.FilePathField(_('${2}'), path=${3:"/abs/path/to/dir"}${4:, max_length=100}${5:, match="*.ext"}${6:, recursive=True}${7:, blank=True, })${0}
 endsnippet
 
 snippet float
-${1:FIELDNAME} = models.FloatField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.FloatField(_('${2}'))${0}
 endsnippet
 
 snippet image
-${1:FIELDNAME} = models.ImageField(_('${2}'), upload_to=${3:path/for/upload}${4:, height_field=height, width_field=width}${5:, max_length=100})
-${0}
+${1:FIELDNAME} = models.ImageField(_('${2}'), upload_to=${3:path/for/upload}${4:, height_field=height, width_field=width}${5:, max_length=100})${0}
 endsnippet
 
 snippet int
@@ -71,64 +61,52 @@ ${1:FIELDNAME} = models.IPAddressField(_('${2}'))${0}
 endsnippet
 
 snippet nullbool
-${1:FIELDNAME} = models.NullBooleanField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.NullBooleanField(_('${2}'))${0}
 endsnippet
 
 snippet posint
-${1:FIELDNAME} = models.PositiveIntegerField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.PositiveIntegerField(_('${2}'))${0}
 endsnippet
 
 snippet possmallint
-${1:FIELDNAME} = models.PositiveSmallIntegerField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.PositiveSmallIntegerField(_('${2}'))${0}
 endsnippet
 
 snippet slug
-${1:FIELDNAME} = models.SlugField(_('${2}'), max_length=${2:50}${3:, blank=True})
-${0}
+${1:FIELDNAME} = models.SlugField(_('${2}'), max_length=${2:50}${3:, blank=True})${0}
 endsnippet
 
 snippet smallint
-${1:FIELDNAME} = models.SmallIntegerField(_('${2}'))
-${0}
+${1:FIELDNAME} = models.SmallIntegerField(_('${2}'))${0}
 endsnippet
 
 snippet text
-${1:FIELDNAME} = models.TextField(_('${2}'), ${3:blank=True})
-${0}
+${1:FIELDNAME} = models.TextField(_('${2}'), ${3:blank=True})${0}
 endsnippet
 
 snippet time
-${1:FIELDNAME} = models.TimeField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True, null=True})
-${0}
+${1:FIELDNAME} = models.TimeField(_('${2}'), ${3:auto_now_add=True, auto_now=True}${4:, blank=True, null=True})${0}
 endsnippet
 
 snippet url
-${1:FIELDNAME} = models.URLField(_('${2}'), ${3:verify_exists=False}${4:, max_length=200}${5:, blank=True})
-${0}
+${1:FIELDNAME} = models.URLField(_('${2}'), ${3:verify_exists=False}${4:, max_length=200}${5:, blank=True})${0}
 endsnippet
 
 snippet xml
 ${1:FIELDNAME} = models.XMLField(_('${2}'), schema_path=${3:None}${4:, blank=True})
-# Relational Fields
-${0}
+# Relational Fields${0}
 endsnippet
 
 snippet fk
-${1:FIELDNAME} = models.ForeignKey(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, to_field='${10}'})
-${0}
+${1:FIELDNAME} = models.ForeignKey(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, to_field='${10}'})${0}
 endsnippet
 
 snippet m2m
-${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}, verbose_name='${3}'${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, symmetrical=False}${10:, through='${11}'}${12:, db_table='${13}'})
-${0}
+${1:FIELDNAME} = models.ManyToManyField(${2:OtherModel}, verbose_name='${3}'${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, symmetrical=False}${10:, through='${11}'}${12:, db_table='${13}'})${0}
 endsnippet
 
 snippet o2o
-${1:FIELDNAME} = models.OneToOneField(_('${2}'), ${3:OtherModel}${4:, parent_link=True}${5:, related_name='${6}'}${7:, limit_choices_to={'${8}': ${8}}}${9:, to_field='${10}'})
-${0}
+${1:FIELDNAME} = models.OneToOneField(_('${2}'), ${3:OtherModel}${4:, parent_link=True}${5:, related_name='${6}'}${7:, limit_choices_to={'${8}': ${8}}}${9:, to_field='${10}'})${0}
 endsnippet
 
 snippet property "property" !b
@@ -197,7 +175,7 @@ ${1:FIELDNAME} = forms.DecimalField(
     ${6:widget=${7},}
     ${8:max_value=${9},}${10: min_value=${10},}
     ${11:max_digits=${12}}${13:, decimal_places=${14}}
-) ${0}
+)${0}
 endsnippet
 
 snippet femail "Form EmailField" !b
@@ -273,59 +251,93 @@ ${1:FIELDNAME} = forms.MultipleChoiceField(
 endsnippet
 
 snippet ftchoice "Form TypedMultipleChoiceField" !b
-${1:FIELDNAME} = forms.TypedMultipleChoiceField(choices=${2}${3:, label=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, empty_value='${9:None}'}${10:, coerce=${11}})
-${0}
+${1:FIELDNAME} = forms.TypedMultipleChoiceField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    choices=${6},${7: widget=${8},}
+    ${9:empty_value='${10:None}'}${11:, coerce=${12}}
+)${0}
 endsnippet
 
 snippet fnbool "Form NullBooleanField"
-${1:FIELDNAME} = forms.NullBooleanField(${2:required=False}${3:, label=_('${4}')}${5:, help_text=_('${6}')})
-${0}
+${1:FIELDNAME} = forms.NullBooleanField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+)${0}
 endsnippet
 
 snippet fregex "Form RegexField" !b
-${1:FIELDNAME} = forms.RegexField(${2:required=False}${3:, label=_('${4}')}${5:, help_text=_('${6}')}${7:, regex='${8}'}${9:, max_length=${10}}${11:, min_length=${12}}${13:, error_messages={${14}}})
-${0}
+${1:FIELDNAME} = forms.RegexField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:regex='${7}'},
+    ${8:max_length=${9}, }${10:min_length=${11}, }
+    ${12:error_messages={${13}}}
+)${0}
 endsnippet
 
 snippet fslug "Form SlugField" !b
-${1:FIELDNAME} = forms.SlugField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}})
-${0}
+${1:FIELDNAME} = forms.SlugField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}})${0}
 endsnippet
 
 snippet ftime "Form TimeField" !b
-${1:FIELDNAME} = forms.TimeField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, input_formats=[${7}]}${8:, widget=${9:forms.TimeInput()}})
-${0}
+${1:FIELDNAME} = forms.TimeField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:input_formats=[${7}], }${8:widget=${9:forms.TimeInput()}}
+)${0}
 endsnippet
 
 snippet furl "Form URLField" !b
-${1:FIELDNAME} = forms.URLField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, max_lenght=${9}}${10:, min_lenght=${11}})
-${0}
+${1:FIELDNAME} = forms.URLField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}, }${8:max_lenght=${9}, }${10:min_lenght=${11}}
+)${0}
 endsnippet
 
 snippet fcombo "Form ComboField" !b
-${1:FIELDNAME} = forms.ComboField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]})
-${0}
+${1:FIELDNAME} = forms.ComboField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}}${8:, fields=[${9}]}
+)${0}
 endsnippet
 
 snippet fmulval "Form MultiValueField" !b
-${1:FIELDNAME} = forms.MultiValueField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, fields=[${9}]}${9:, compress_data(${10})})
-${0}
+${1:FIELDNAME} = forms.MultiValueField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:widget=${7}, }${8:fields=[${9}], }${9:compress_data(${10})}
+)${0}
 endsnippet
 
 snippet fsplit "Form SplitDateTimeField" !b
-${1:FIELDNAME} = forms.SplitDateTimeField(label=_('${2}')${3:, help_text=_('${4}')}${5:, required=False}${6:, input_date_formats=[${7}]}${8:, input_time_formats=[${9}]}${10:, widget=${11}})
-${0}
+${1:FIELDNAME} = forms.SplitDateTimeField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    ${6:input_date_formats=[${7}], }${8:input_time_formats=[${9}],}
+    ${10:widget=${11}}
+)${0}
 endsnippet
 
 snippet fmchoice "Form ModelChoiceField" !b
-${1:FIELDNAME} = forms.ModelChoiceField(queryset=${2}${3:, label=_('${4}')}${5:, required=False}${6:, widget=${7}}${8:, empty_label=_('${9}')})
-${0}
+${1:FIELDNAME} = forms.ModelChoiceField(
+    label=_('${2}'),${3: required=False,}
+    ${4:help_text=_('${5}'),}
+    queryset=${2},
+    ${6:widget=${7}, }${8:, empty_label=_('${9}')}
+)${0}
 endsnippet
 
 snippet fmmchoice "Form ModelMultipleChoiceField" !b
 ${1:FIELDNAME} = forms.ModelMultipleChoiceField(
     label=_('${2}'),${3: required=False,}
-    queryset=${4}${5:, widget=${6}}
+    ${4:help_text=_('${5}'),}
+    queryset=${6}${7:, widget=${8}}
 )${0}
 endsnippet
 
