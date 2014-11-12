@@ -99,3 +99,6 @@
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
+[submodule "bundle/Omnisharp"]
+	path = bundle/Omnisharp
+	url = https://github.com/nosami/Omnisharp.git
