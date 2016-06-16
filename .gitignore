@@ -2,3 +2,4 @@
 tags
 doc/
 bundle/greplace.vim/doc/tags
+node_modules/

@@ -200,6 +200,10 @@ if filereadable($HOME."/.vim/Markdown.pl")
 	" autocmd FileType html,htm,mkd,markdown nnoremap <leader>md :exe "%! ".$HOME."/.vim/Markdown.pl --html4tags"<cr>
 endif
 
+autocmd BufNewFile,BufReadPost *.md set filetype=mkd.markdown
+autocmd BufNewFile,BufReadPost *.mkd set filetype=mkd.markdown
+autocmd BufNewFile,BufReadPost *.markdown set filetype=mkd.markdown
+
 :let g:netrw_browsex_viewer= "open"
 
 " use regular regex syntax rather than vim regex
@@ -223,9 +227,9 @@ command! MAC set ff=mac 	" force mac style line endings
 " This will display the path of the current file in the status line
 " It will also copy the path to the unnamed register so it can be pasted
 " with p or C-r C-r
-command! FILEPATH call g:getFilePath()
+command! FILEPATH call g:GetFilePath()
 
-function! g:getFilePath()
+function! g:GetFilePath()
     let @" = expand("%:p")
     echom "Current file:" expand("%:p")
 endfunc
@@ -421,7 +425,7 @@ call pathogen#helptags()
 "
 " Ultisnips
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "UltiSnippets"]
 let g:UltiSnipsExpandTrigger="<tab>" 
 let g:UltiSnipsJumpForwardTrigger="<tab>" 
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 

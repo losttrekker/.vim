@@ -73,7 +73,7 @@ ${1:FIELDNAME} = models.PositiveSmallIntegerField(_('${2}'))${0}
 endsnippet
 
 snippet slug
-${1:FIELDNAME} = models.SlugField(_('${2}'), max_length=${2:50}${3:, blank=True})${0}
+${1:FIELDNAME} = models.SlugField(_('${2:Slug}'), max_length=${3:50}${4:, blank=True})${0}
 endsnippet
 
 snippet smallint
@@ -98,7 +98,7 @@ ${1:FIELDNAME} = models.XMLField(_('${2}'), schema_path=${3:None}${4:, blank=Tru
 endsnippet
 
 snippet fk
-${1:FIELDNAME} = models.ForeignKey(_('${2}'), ${3:OtherModel}${4:, related_name='${5}'}${6:, limit_choices_to={'${7}': ${8}}}${9:, to_field='${10}'})${0}
+${1:FIELDNAME} = models.ForeignKey(${2:OtherModel}${3:, related_name='${4}'}${5:, limit_choices_to={'${6}': ${7}}}${8:, to_field='${9}'})${0}
 endsnippet
 
 snippet m2m
@@ -362,7 +362,7 @@ snippet model
 class ${1:ModelName}(models.Model):
     """${2:$1 docstring}"""
     ${0}
-    order = PositionField(_('Order'), unique_for_fields=('FIELD_NAME',), help_text='Please enter an integer.') 
+    order = models.PositiveSmallIntegerField(_('Order'), help_text='Please enter an integer.') 
     date_modified = models.DateTimeField(_('Date Modified'), auto_now=True, editable=False)
     date_created = models.DateTimeField(_('Date Created'), auto_now_add=True, editable=False)
 

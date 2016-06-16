@@ -1,0 +1,19 @@
+snippet meta "blog meta" !b
+Title: ${1:TITLE}
+Date: `!p import datetime as dt; snip.rv = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
+Modified: `!p import datetime as dt; snip.rv = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
+Category: ${2:misc}
+Tags: ${3:development}
+Authors: ${4:Jonathan Kellenberg}
+Summary: ${5:$1}
+
+${0:content...}
+endsnippet
+
+snippet modified "update post modified time" !b
+Modified: `!p import datetime as dt; snip.rv = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")`${0}
+endsnippet
+
+snippet summary "end summary section" !b
+<!-- PELICAN_END_SUMMARY -->
+endsnippet
